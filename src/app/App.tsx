@@ -161,7 +161,7 @@ export default function App() {
             ready to launch.
         </h1>
 
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:pr-24">
           <p className="text-base text-foreground/60 max-w-sm leading-relaxed">
             Stunning, production-ready templates for startups, agencies and creators.
             Designed to convert, built to scale.
