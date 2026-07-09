@@ -434,10 +434,10 @@ export default function App() {
         </h2>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="mailto:hello@boommamba.com"
+            href="mailto:contacto@boommambawave.com"
             className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
           >
-            hello@boommamba.com <ArrowUpRight size={15} />
+            contacto@boommambawave.com <ArrowUpRight size={15} />
           </a>
           <a
             href="#templates"
