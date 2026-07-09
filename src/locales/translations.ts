@@ -71,7 +71,7 @@ export const translations = {
         Privacy: "Privacidad",
         Terms: "Términos",
       },
-      rights: "© 2025 Boom Mamba Wave — Todos los derechos reservados",
+      rights: "© 2026 Boom Mamba Wave — Todos los derechos reservados",
     },
     legal: {
       privacyTitle: "Política de Privacidad",
@@ -157,7 +157,7 @@ export const translations = {
         Privacy: "Privacy",
         Terms: "Terms",
       },
-      rights: "© 2025 Boom Mamba Wave — All rights reserved",
+      rights: "© 2026 Boom Mamba Wave — All rights reserved",
     },
     legal: {
       privacyTitle: "Privacy Policy",
