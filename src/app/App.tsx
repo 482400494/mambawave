@@ -78,12 +78,13 @@ export default function App() {
         }`}
         style={{ fontFamily: "'Big John PRO', sans-serif" }}
       >
-        <div className="max-w-screen-xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
+        <div className="max-w-screen-xl mx-auto px-6 md:px-12 flex items-center justify-between py-4">
           <a href="#" className="flex items-center">
             <ImageWithFallback
               src={logotipo}
               alt="Boom Mamba Wave logo"
-              className="h-14 md:h-16 w-auto object-contain"
+              className="w-auto object-contain"
+              style={{ minHeight: "3cm" }}
             />
           </a>
 
