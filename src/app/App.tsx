@@ -84,7 +84,7 @@ export default function App() {
               src={logotipo}
               alt="Boom Mamba Wave logo"
               className="w-auto object-contain"
-              style={{ minHeight: "3cm" }}
+              style={{ height: "113.385827px" }}
             />
           </a>
 
