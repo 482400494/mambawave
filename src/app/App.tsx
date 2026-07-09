@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowUpRight, Menu, X, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import logotipo from "@/imports/01_logotipo.jpg";
+import logotipo from "@/imports/logo-nuevo.png";
 
 const projects = [
   {
