@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowUpRight, Menu, X, ArrowRight, Globe } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
+import isotipo from "@/imports/isotipo.png";
 import { translations } from "@/locales/translations";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router";
 import { LegalPage } from "./pages/LegalPage";
@@ -379,9 +380,17 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <div
-        className="min-h-screen bg-background text-foreground overflow-x-hidden"
+        className="min-h-screen bg-background text-foreground overflow-x-hidden relative"
         style={{ fontFamily: "'Tw Cen MT', 'Century Gothic', sans-serif" }}
       >
+        {/* BACKGROUND ISOTYPE WATERMARK */}
+        <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+          <img 
+            src={isotipo} 
+            alt="" 
+            className="w-[150vw] md:w-[80vw] max-w-[1200px] opacity-[0.03]"
+          />
+        </div>
         {/* NAV */}
         <nav
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
