@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { ArrowUpRight, Menu, X, ArrowRight } from "lucide-react";
+import { ArrowUpRight, Menu, X, ArrowRight, Globe } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
+import { translations } from "@/locales/translations";
 
 const projects = [
   {
@@ -38,24 +39,11 @@ const projects = [
   },
 ];
 
-const services = [
-  { label: "01", title: "Ready-Made Templates", desc: "Professionally designed, pixel-perfect templates ready to launch in minutes." },
-  { label: "02", title: "Custom Design", desc: "Bespoke templates tailored to your brand, audience and business goals." },
-  { label: "03", title: "Support & Updates", desc: "Lifetime updates and dedicated support to keep your site running smoothly." },
-  { label: "04", title: "White Label", desc: "Rebrand and resell our templates under your own label with full rights." },
-];
-
-const stats = [
-  { value: "500+", label: "Templates crafted" },
-  { value: "12K+", label: "Happy customers" },
-  { value: "98%", label: "Satisfaction rate" },
-  { value: "24/7", label: "Support" },
-];
-
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [lang, setLang] = useState<'es'|'en'>('es');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -63,8 +51,24 @@ export default function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const t = translations[lang];
+
   const filters = ["All", "SaaS", "E-Commerce", "Portfolio", "Dashboard"];
   const filtered = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
+
+  const stats = [
+    { value: "500+", label: t.stats.t1 },
+    { value: "12K+", label: t.stats.t2 },
+    { value: "98%", label: t.stats.t3 },
+    { value: "24/7", label: t.stats.t4 },
+  ];
+
+  const navItems = [
+    { key: "Templates", label: t.nav.templates },
+    { key: "Services", label: t.nav.services },
+    { key: "About", label: t.nav.about },
+    { key: "Contact", label: t.nav.contact },
+  ];
 
   return (
     <div
@@ -89,46 +93,63 @@ export default function App() {
           </a>
 
           <ul className="hidden md:flex items-center gap-10 text-sm font-medium tracking-wide uppercase">
-            {["Templates", "Services", "About", "Contact"].map((item) => (
-              <li key={item}>
+            {navItems.map((item) => (
+              <li key={item.key}>
                 <a
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${item.key.toLowerCase()}`}
                   className="text-foreground/70 hover:text-foreground transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </a>
               </li>
             ))}
           </ul>
 
-          <a
-            href="#contact"
-            className="hidden md:inline-flex items-center gap-2 text-sm font-medium px-5 py-2 bg-foreground text-background hover:bg-accent hover:text-white transition-colors"
-          >
-            Browse templates <ArrowUpRight size={14} />
-          </a>
+          <div className="hidden md:flex items-center gap-6">
+            <button
+              onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+              className="flex items-center gap-2 text-xs font-medium tracking-widest uppercase hover:text-accent transition-colors"
+            >
+              <Globe size={16} />
+              {lang === 'es' ? 'EN' : 'ES'}
+            </button>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2 bg-foreground text-background hover:bg-accent hover:text-white transition-colors"
+            >
+              {t.nav.browse} <ArrowUpRight size={14} />
+            </a>
+          </div>
 
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="flex md:hidden items-center gap-4">
+            <button
+              onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+              className="text-xs font-medium tracking-widest uppercase hover:text-accent transition-colors"
+            >
+              {lang === 'es' ? 'EN' : 'ES'}
+            </button>
+            <button
+              className="text-foreground"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}
         {menuOpen && (
           <div className="md:hidden bg-background border-t border-border px-6 py-8 flex flex-col gap-6">
-            {["Templates", "Services", "About", "Contact"].map((item) => (
+            {navItems.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.key}
+                href={`#${item.key.toLowerCase()}`}
                 className="text-2xl font-light"
                 
                 onClick={() => setMenuOpen(false)}
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </div>
@@ -147,24 +168,23 @@ export default function App() {
           className="text-xs tracking-[0.3em] uppercase mb-10"
           style={{ color: "var(--accent)" }}
         >
-          Boom Mamba Wave — Premium Web Templates
+          {t.hero.subtitle}
         </p>
 
         <h1
           className="text-[clamp(2.5rem,7vw,6.5rem)] leading-[1.1] font-black tracking-tight mb-10 max-w-5xl"
           style={{ fontFamily: "'UM Cloft', serif", color: "#328aa0" }}
         >
-            Premium
+            {t.hero.titleLine1}
             <br />
-            <span className="text-foreground/20">templates,</span>
+            <span className="text-foreground/20">{t.hero.titleLine2}</span>
             <br />
-            ready to launch.
+            {t.hero.titleLine3}
         </h1>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:pr-24">
           <p className="text-base text-foreground/60 max-w-sm leading-relaxed">
-            Stunning, production-ready templates for startups, agencies and creators.
-            Designed to convert, built to scale.
+            {t.hero.desc}
           </p>
           <div className="flex items-center gap-8">
             <a
@@ -175,14 +195,14 @@ export default function App() {
                 className="w-10 h-px transition-all duration-300 group-hover:w-20"
                 style={{ background: "var(--accent)" }}
               />
-              Explore templates
+              {t.hero.explore}
             </a>
           </div>
         </div>
 
         <div className="absolute bottom-8 right-6 md:right-12 hidden md:flex flex-col items-center gap-2">
           <span className="text-xs tracking-widest uppercase text-foreground/30" style={{ writingMode: "vertical-rl" }}>
-            Scroll
+            {t.hero.scroll}
           </span>
           <div className="w-px h-12 bg-foreground/20" />
         </div>
@@ -213,15 +233,15 @@ export default function App() {
               className="text-xs tracking-[0.3em] uppercase mb-4"
               style={{ color: "var(--accent)" }}
             >
-              Featured templates
+              {t.projects.featured}
             </p>
             <h2
               className="text-[clamp(2rem,5vw,4rem)] font-black leading-tight"
               
             >
-              Our best
+              {t.projects.title1}
               <br />
-              sellers.
+              {t.projects.title2}
             </h2>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -235,7 +255,7 @@ export default function App() {
                     : "border-border text-foreground/50 hover:border-foreground hover:text-foreground"
                 }`}
               >
-                {f}
+                {t.projects.filters[f as keyof typeof t.projects.filters] || f}
               </button>
             ))}
           </div>
@@ -287,7 +307,7 @@ export default function App() {
 
         {filtered.length === 0 && (
           <div className="py-24 text-center text-foreground/30 text-sm tracking-widest uppercase">
-            No products in this category.
+            {t.projects.empty}
           </div>
         )}
       </section>
@@ -300,17 +320,17 @@ export default function App() {
               className="text-xs tracking-[0.3em] uppercase mb-4"
               style={{ color: "var(--accent)" }}
             >
-              What we offer
+              {t.services.subtitle}
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight"
               
             >
-              Services.
+              {t.services.title}
             </h2>
           </div>
           <div className="divide-y divide-border">
-            {services.map((s) => (
+            {t.services.items.map((s) => (
               <div key={s.label} className="group flex items-start gap-8 py-8 cursor-pointer">
                 <span
                   className="text-xs mt-1 flex-shrink-0"
@@ -348,30 +368,29 @@ export default function App() {
               className="text-xs tracking-[0.3em] uppercase mb-4"
               style={{ color: "var(--accent)" }}
             >
-              Our story
+              {t.about.subtitle}
             </p>
             <h2
               className="text-[clamp(2rem,5vw,4rem)] font-black leading-tight mb-8"
               
             >
-              Designed by
+              {t.about.title1}
               <br />
-              creators,
+              {t.about.title2}
               <br />
-              for creators.
+              {t.about.title3}
             </h2>
             <p className="text-foreground/50 leading-relaxed max-w-md mb-8">
-              Boom Mamba Wave was founded by designers and developers who were tired of templates that looked pretty in previews but
-              fell apart in production. <em>We build for real-world use, not just demos.</em>
+              {t.about.p1} <em>{t.about.p1bold}</em>
             </p>
             <p className="text-foreground/50 leading-relaxed max-w-md mb-10">
-              Every template is hand-crafted with clean code, responsive design, and pixel-perfect attention to detail. No bloat, no compromise.
+              {t.about.p2}
             </p>
             <a
               href="#contact"
               className="inline-flex items-center gap-3 text-sm font-medium uppercase tracking-widest group"
             >
-              <span>Meet the team</span>
+              <span>{t.about.meet}</span>
               <span
                 className="w-8 h-px transition-all duration-300 group-hover:w-16"
                 style={{ background: "var(--accent)" }}
@@ -389,7 +408,7 @@ export default function App() {
               className="absolute top-6 left-6 text-xs tracking-widest uppercase"
               style={{ color: "var(--accent)" }}
             >
-              Our team, 2025
+              {t.about.teamImg}
             </div>
           </div>
         </div>
@@ -401,17 +420,17 @@ export default function App() {
           className="text-xs tracking-[0.3em] uppercase mb-6"
           style={{ color: "var(--accent)" }}
         >
-          Get started
+          {t.contact.subtitle}
         </p>
         <h2
           className="text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.92] tracking-tight mb-12"
           
         >
-          Ready to
+          {t.contact.title1}
           <br />
-          <span className="text-foreground/20">launch</span>
+          <span className="text-foreground/20">{t.contact.title2}</span>
           <br />
-          your site?
+          {t.contact.title3}
         </h2>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
@@ -424,7 +443,7 @@ export default function App() {
             href="#templates"
             className="inline-flex items-center gap-3 px-8 py-4 border border-border text-sm font-medium tracking-widest uppercase hover:border-foreground transition-colors duration-200"
           >
-            Browse templates
+            {t.contact.browse}
           </a>
         </div>
       </section>
@@ -436,18 +455,19 @@ export default function App() {
             src={logotipo}
             alt="Boom Mamba Wave logo"
             className="h-8 w-auto object-contain"
+            style={{ height: "113.385827px" }}
           />
 
           <div className="flex flex-wrap gap-8 text-xs text-foreground/40 tracking-widest uppercase">
-            {["Templates", "Services", "About", "Privacy", "Terms"].map((item) => (
-              <a key={item} href="#" className="hover:text-foreground transition-colors">
-                {item}
+            {Object.keys(t.footer.links).map((key) => (
+              <a key={key} href="#" className="hover:text-foreground transition-colors">
+                {t.footer.links[key as keyof typeof t.footer.links]}
               </a>
             ))}
           </div>
 
           <p className="text-xs text-foreground/30" >
-            © 2025 Boom Mamba Wave — All rights reserved
+            {t.footer.rights}
           </p>
         </div>
       </footer>
