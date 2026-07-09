@@ -151,7 +151,7 @@ export default function App() {
         </p>
 
         <h1
-          className="text-[clamp(3rem,9vw,8rem)] leading-[0.95] font-black tracking-tight mb-10 max-w-5xl"
+          className="text-[clamp(2.5rem,7vw,6.5rem)] leading-[1.1] font-black tracking-tight mb-10 max-w-5xl"
           style={{ fontFamily: "'UM Cloft', serif", color: "#328aa0" }}
         >
             Premium
