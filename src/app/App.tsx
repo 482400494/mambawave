@@ -385,7 +385,7 @@ export default function App() {
         {/* NAV */}
         <nav
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-            scrolled ? "bg-background/90 backdrop-blur-md border-b border-primary/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]" : "bg-transparent"
+            scrolled ? "bg-[#003347]/95 backdrop-blur-md border-b border-primary/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]" : "bg-transparent"
           }`}
           style={{ fontFamily: "'Big John PRO', sans-serif" }}
         >
