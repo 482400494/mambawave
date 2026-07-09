@@ -125,7 +125,7 @@ export default function App() {
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 className="text-2xl font-light"
-                style={{ fontFamily: "'Roboto Slab', serif" }}
+                
                 onClick={() => setMenuOpen(false)}
               >
                 {item}
@@ -145,7 +145,7 @@ export default function App() {
 
         <p
           className="text-xs tracking-[0.3em] uppercase mb-10"
-          style={{ color: "var(--accent)", fontFamily: "'DM Mono', monospace" }}
+          style={{ color: "var(--accent)" }}
         >
           Boom Mamba Wave — Premium Web Templates
         </p>
@@ -195,7 +195,7 @@ export default function App() {
             <div key={s.label} className="flex flex-col gap-1">
               <span
                 className="text-4xl font-black leading-none"
-                style={{ fontFamily: "'Roboto Slab', serif", color: "var(--accent)" }}
+                style={{ color: "var(--accent)" }}
               >
                 {s.value}
               </span>
@@ -211,13 +211,13 @@ export default function App() {
           <div>
             <p
               className="text-xs tracking-[0.3em] uppercase mb-4"
-              style={{ color: "var(--accent)", fontFamily: "'DM Mono', monospace" }}
+              style={{ color: "var(--accent)" }}
             >
               Featured templates
             </p>
             <h2
               className="text-[clamp(2rem,5vw,4rem)] font-black leading-tight"
-              style={{ fontFamily: "'Roboto Slab', serif" }}
+              
             >
               Our best
               <br />
@@ -263,7 +263,7 @@ export default function App() {
                     </p>
                     <h3
                       className="text-2xl font-black text-foreground"
-                      style={{ fontFamily: "'Roboto Slab', serif" }}
+                      
                     >
                       {project.title}
                     </h3>
@@ -276,7 +276,7 @@ export default function App() {
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 group-hover:opacity-0 transition-opacity duration-300">
                 <p
                   className="text-xs tracking-widest uppercase text-foreground/50"
-                  style={{ fontFamily: "'DM Mono', monospace" }}
+                  
                 >
                   {project.category} — {project.year}
                 </p>
@@ -298,13 +298,13 @@ export default function App() {
           <div>
             <p
               className="text-xs tracking-[0.3em] uppercase mb-4"
-              style={{ color: "var(--accent)", fontFamily: "'DM Mono', monospace" }}
+              style={{ color: "var(--accent)" }}
             >
               What we offer
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight"
-              style={{ fontFamily: "'Roboto Slab', serif" }}
+              
             >
               Services.
             </h2>
@@ -314,7 +314,7 @@ export default function App() {
               <div key={s.label} className="group flex items-start gap-8 py-8 cursor-pointer">
                 <span
                   className="text-xs mt-1 flex-shrink-0"
-                  style={{ fontFamily: "'DM Mono', monospace", color: "var(--accent)" }}
+                  style={{ color: "var(--accent)" }}
                 >
                   {s.label}
                 </span>
@@ -322,7 +322,7 @@ export default function App() {
                   <div className="flex items-center justify-between">
                     <h3
                       className="text-xl font-black group-hover:text-accent transition-colors"
-                      style={{ fontFamily: "'Roboto Slab', serif" }}
+                      
                     >
                       {s.title}
                     </h3>
@@ -346,13 +346,13 @@ export default function App() {
           <div>
             <p
               className="text-xs tracking-[0.3em] uppercase mb-4"
-              style={{ color: "var(--accent)", fontFamily: "'DM Mono', monospace" }}
+              style={{ color: "var(--accent)" }}
             >
               Our story
             </p>
             <h2
               className="text-[clamp(2rem,5vw,4rem)] font-black leading-tight mb-8"
-              style={{ fontFamily: "'Roboto Slab', serif" }}
+              
             >
               Designed by
               <br />
@@ -387,7 +387,7 @@ export default function App() {
             />
             <div
               className="absolute top-6 left-6 text-xs tracking-widest uppercase"
-              style={{ fontFamily: "'DM Mono', monospace", color: "var(--accent)" }}
+              style={{ color: "var(--accent)" }}
             >
               Our team, 2025
             </div>
@@ -399,13 +399,13 @@ export default function App() {
       <section id="contact" className="py-36 px-6 md:px-12 max-w-screen-xl mx-auto text-center">
         <p
           className="text-xs tracking-[0.3em] uppercase mb-6"
-          style={{ color: "var(--accent)", fontFamily: "'DM Mono', monospace" }}
+          style={{ color: "var(--accent)" }}
         >
           Get started
         </p>
         <h2
           className="text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.92] tracking-tight mb-12"
-          style={{ fontFamily: "'Roboto Slab', serif" }}
+          
         >
           Ready to
           <br />
@@ -446,7 +446,7 @@ export default function App() {
             ))}
           </div>
 
-          <p className="text-xs text-foreground/30" style={{ fontFamily: "'DM Mono', monospace" }}>
+          <p className="text-xs text-foreground/30" >
             © 2025 Boom Mamba Wave — All rights reserved
           </p>
         </div>
