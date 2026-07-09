@@ -460,7 +460,7 @@ export default function App() {
 
           <div className="flex flex-wrap gap-8 text-xs text-foreground/40 tracking-widest uppercase">
             {Object.keys(t.footer.links).map((key) => (
-              <a key={key} href="#" className="hover:text-foreground transition-colors">
+              <a key={key} href={`#${key.toLowerCase()}`} className="hover:text-foreground transition-colors">
                 {t.footer.links[key as keyof typeof t.footer.links]}
               </a>
             ))}
