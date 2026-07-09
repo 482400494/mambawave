@@ -72,6 +72,17 @@ export const translations = {
         Terms: "Términos",
       },
       rights: "© 2025 Boom Mamba Wave — Todos los derechos reservados",
+    },
+    legal: {
+      privacyTitle: "Política de Privacidad",
+      privacyDate: "Última actualización: Agosto 2025",
+      privacyP1: "En Boom Mamba Wave nos tomamos muy en serio tu privacidad. Esta política describe qué datos recopilamos y cómo los utilizamos. (Reemplaza este texto con tu política real).",
+      privacyP2: "Recopilamos información estándar de uso de la web y cualquier dato que nos proporciones voluntariamente al contactarnos o realizar una compra.",
+      termsTitle: "Términos de Servicio",
+      termsDate: "Última actualización: Agosto 2025",
+      termsP1: "Al utilizar nuestras plantillas web, aceptas los siguientes términos de servicio. (Reemplaza este texto con tus términos reales).",
+      termsP2: "Nuestras plantillas están licenciadas para un solo proyecto a menos que adquieras la licencia de Marca Blanca. Nos reservamos el derecho de revocar el acceso en caso de abuso.",
+      back: "Volver al inicio"
     }
   },
   en: {
@@ -147,6 +158,17 @@ export const translations = {
         Terms: "Terms",
       },
       rights: "© 2025 Boom Mamba Wave — All rights reserved",
+    },
+    legal: {
+      privacyTitle: "Privacy Policy",
+      privacyDate: "Last updated: August 2025",
+      privacyP1: "At Boom Mamba Wave, we take your privacy seriously. This policy describes what data we collect and how we use it. (Replace this text with your real policy).",
+      privacyP2: "We collect standard web usage information and any data you voluntarily provide to us when contacting us or making a purchase.",
+      termsTitle: "Terms of Service",
+      termsDate: "Last updated: August 2025",
+      termsP1: "By using our web templates, you agree to the following terms of service. (Replace this text with your real terms).",
+      termsP2: "Our templates are licensed for a single project unless you purchase a White Label license. We reserve the right to revoke access in case of abuse.",
+      back: "Back to home"
     }
   }
 };

@@ -3,6 +3,8 @@ import { ArrowUpRight, Menu, X, ArrowRight, Globe } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
 import { translations } from "@/locales/translations";
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router";
+import { LegalPage } from "./pages/LegalPage";
 
 const projects = [
   {
@@ -39,18 +41,8 @@ const projects = [
   },
 ];
 
-export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+function Home({ lang }: { lang: 'en' | 'es' }) {
   const [activeFilter, setActiveFilter] = useState("All");
-  const [lang, setLang] = useState<'es'|'en'>('es');
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const t = translations[lang];
 
   const filters = ["All", "SaaS", "E-Commerce", "Portfolio", "Dashboard"];
@@ -63,99 +55,8 @@ export default function App() {
     { value: "24/7", label: t.stats.t4 },
   ];
 
-  const navItems = [
-    { key: "Templates", label: t.nav.templates },
-    { key: "Services", label: t.nav.services },
-    { key: "About", label: t.nav.about },
-    { key: "Contact", label: t.nav.contact },
-  ];
-
   return (
-    <div
-      className="min-h-screen bg-background text-foreground overflow-x-hidden"
-      style={{ fontFamily: "'Tw Cen MT', 'Century Gothic', sans-serif" }}
-    >
-      {/* NAV */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-background border-b border-border" : "bg-transparent"
-        }`}
-        style={{ fontFamily: "'Big John PRO', sans-serif" }}
-      >
-        <div className="max-w-screen-xl mx-auto px-6 md:px-12 flex items-center justify-between py-4">
-          <a href="#" className="flex items-center">
-            <ImageWithFallback
-              src={logotipo}
-              alt="Boom Mamba Wave logo"
-              className="w-auto object-contain"
-              style={{ height: "113.385827px" }}
-            />
-          </a>
-
-          <ul className="hidden md:flex items-center gap-10 text-sm font-medium tracking-wide uppercase">
-            {navItems.map((item) => (
-              <li key={item.key}>
-                <a
-                  href={`#${item.key.toLowerCase()}`}
-                  className="text-foreground/70 hover:text-foreground transition-colors"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div className="hidden md:flex items-center gap-6">
-            <button
-              onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-              className="flex items-center gap-2 text-xs font-medium tracking-widest uppercase hover:text-accent transition-colors"
-            >
-              <Globe size={16} />
-              {lang === 'es' ? 'EN' : 'ES'}
-            </button>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2 bg-foreground text-background hover:bg-accent hover:text-white transition-colors"
-            >
-              {t.nav.browse} <ArrowUpRight size={14} />
-            </a>
-          </div>
-
-          <div className="flex md:hidden items-center gap-4">
-            <button
-              onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-              className="text-xs font-medium tracking-widest uppercase hover:text-accent transition-colors"
-            >
-              {lang === 'es' ? 'EN' : 'ES'}
-            </button>
-            <button
-              className="text-foreground"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="md:hidden bg-background border-t border-border px-6 py-8 flex flex-col gap-6">
-            {navItems.map((item) => (
-              <a
-                key={item.key}
-                href={`#${item.key.toLowerCase()}`}
-                className="text-2xl font-light"
-                
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        )}
-      </nav>
-
+    <>
       {/* HERO */}
       <section className="relative min-h-screen flex flex-col justify-end pb-32 pt-32 px-6 md:px-12 max-w-screen-xl mx-auto">
         <div className="absolute top-[30%] right-6 md:right-12 w-px bg-border h-48 opacity-40" />
@@ -175,11 +76,11 @@ export default function App() {
           className="text-[clamp(2.5rem,7vw,6.5rem)] leading-[1.1] font-black tracking-tight mb-10 max-w-5xl"
           style={{ fontFamily: "'UM Cloft', serif", color: "#328aa0" }}
         >
-            {t.hero.titleLine1}
-            <br />
-            <span className="text-foreground/20">{t.hero.titleLine2}</span>
-            <br />
-            {t.hero.titleLine3}
+          {t.hero.titleLine1}
+          <br />
+          <span className="text-foreground/20">{t.hero.titleLine2}</span>
+          <br />
+          {t.hero.titleLine3}
         </h1>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:pr-24">
@@ -237,7 +138,6 @@ export default function App() {
             </p>
             <h2
               className="text-[clamp(2rem,5vw,4rem)] font-black leading-tight"
-              
             >
               {t.projects.title1}
               <br />
@@ -283,7 +183,6 @@ export default function App() {
                     </p>
                     <h3
                       className="text-2xl font-black text-foreground"
-                      
                     >
                       {project.title}
                     </h3>
@@ -296,7 +195,6 @@ export default function App() {
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 group-hover:opacity-0 transition-opacity duration-300">
                 <p
                   className="text-xs tracking-widest uppercase text-foreground/50"
-                  
                 >
                   {project.category} — {project.year}
                 </p>
@@ -324,7 +222,6 @@ export default function App() {
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight"
-              
             >
               {t.services.title}
             </h2>
@@ -342,7 +239,6 @@ export default function App() {
                   <div className="flex items-center justify-between">
                     <h3
                       className="text-xl font-black group-hover:text-accent transition-colors"
-                      
                     >
                       {s.title}
                     </h3>
@@ -372,7 +268,6 @@ export default function App() {
             </p>
             <h2
               className="text-[clamp(2rem,5vw,4rem)] font-black leading-tight mb-8"
-              
             >
               {t.about.title1}
               <br />
@@ -424,7 +319,6 @@ export default function App() {
         </p>
         <h2
           className="text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.92] tracking-tight mb-12"
-          
         >
           {t.contact.title1}
           <br />
@@ -447,30 +341,188 @@ export default function App() {
           </a>
         </div>
       </section>
+    </>
+  );
+}
 
-      {/* FOOTER */}
-      <footer className="border-t border-border px-6 md:px-12 py-10">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <ImageWithFallback
-            src={logotipo}
-            alt="Boom Mamba Wave logo"
-            className="h-8 w-auto object-contain"
-            style={{ height: "113.385827px" }}
-          />
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
-          <div className="flex flex-wrap gap-8 text-xs text-foreground/40 tracking-widest uppercase">
-            {Object.keys(t.footer.links).map((key) => (
-              <a key={key} href={`#${key.toLowerCase()}`} className="hover:text-foreground transition-colors">
-                {t.footer.links[key as keyof typeof t.footer.links]}
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [lang, setLang] = useState<'es'|'en'>('es');
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const t = translations[lang];
+
+  const navItems = [
+    { key: "Templates", label: t.nav.templates },
+    { key: "Services", label: t.nav.services },
+    { key: "About", label: t.nav.about },
+    { key: "Contact", label: t.nav.contact },
+  ];
+
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <div
+        className="min-h-screen bg-background text-foreground overflow-x-hidden"
+        style={{ fontFamily: "'Tw Cen MT', 'Century Gothic', sans-serif" }}
+      >
+        {/* NAV */}
+        <nav
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            scrolled ? "bg-background border-b border-border" : "bg-transparent"
+          }`}
+          style={{ fontFamily: "'Big John PRO', sans-serif" }}
+        >
+          <div className="max-w-screen-xl mx-auto px-6 md:px-12 flex items-center justify-between py-4">
+            <Link to="/" className="flex items-center">
+              <ImageWithFallback
+                src={logotipo}
+                alt="Boom Mamba Wave logo"
+                className="w-auto object-contain"
+                style={{ height: "113.385827px" }}
+              />
+            </Link>
+
+            <ul className="hidden md:flex items-center gap-10 text-sm font-medium tracking-wide uppercase">
+              {navItems.map((item) => (
+                <li key={item.key}>
+                  <a
+                    href={`/#${item.key.toLowerCase()}`}
+                    className="text-foreground/70 hover:text-foreground transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div className="hidden md:flex items-center gap-6">
+              <button
+                onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+                className="flex items-center gap-2 text-xs font-medium tracking-widest uppercase hover:text-accent transition-colors"
+              >
+                <Globe size={16} />
+                {lang === 'es' ? 'EN' : 'ES'}
+              </button>
+              <a
+                href="/#contact"
+                className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2 bg-foreground text-background hover:bg-accent hover:text-white transition-colors"
+              >
+                {t.nav.browse} <ArrowUpRight size={14} />
               </a>
-            ))}
+            </div>
+
+            <div className="flex md:hidden items-center gap-4">
+              <button
+                onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+                className="text-xs font-medium tracking-widest uppercase hover:text-accent transition-colors"
+              >
+                {lang === 'es' ? 'EN' : 'ES'}
+              </button>
+              <button
+                className="text-foreground"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+              >
+                {menuOpen ? <X size={22} /> : <Menu size={22} />}
+              </button>
+            </div>
           </div>
 
-          <p className="text-xs text-foreground/30" >
-            {t.footer.rights}
-          </p>
-        </div>
-      </footer>
-    </div>
+          {/* Mobile menu */}
+          {menuOpen && (
+            <div className="md:hidden bg-background border-t border-border px-6 py-8 flex flex-col gap-6">
+              {navItems.map((item) => (
+                <a
+                  key={item.key}
+                  href={`/#${item.key.toLowerCase()}`}
+                  className="text-2xl font-light"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Home lang={lang} />} />
+          <Route 
+            path="/privacy" 
+            element={
+              <LegalPage 
+                title={t.legal.privacyTitle} 
+                date={t.legal.privacyDate} 
+                p1={t.legal.privacyP1} 
+                p2={t.legal.privacyP2} 
+                backText={t.legal.back}
+              />
+            } 
+          />
+          <Route 
+            path="/terms" 
+            element={
+              <LegalPage 
+                title={t.legal.termsTitle} 
+                date={t.legal.termsDate} 
+                p1={t.legal.termsP1} 
+                p2={t.legal.termsP2} 
+                backText={t.legal.back}
+              />
+            } 
+          />
+        </Routes>
+
+        {/* FOOTER */}
+        <footer className="border-t border-border px-6 md:px-12 py-10">
+          <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <Link to="/">
+              <ImageWithFallback
+                src={logotipo}
+                alt="Boom Mamba Wave logo"
+                className="h-8 w-auto object-contain"
+                style={{ height: "113.385827px" }}
+              />
+            </Link>
+
+            <div className="flex flex-wrap gap-8 text-xs text-foreground/40 tracking-widest uppercase">
+              {Object.keys(t.footer.links).map((key) => {
+                const isLegal = key === "Privacy" || key === "Terms";
+                return isLegal ? (
+                  <Link key={key} to={`/${key.toLowerCase()}`} className="hover:text-foreground transition-colors">
+                    {t.footer.links[key as keyof typeof t.footer.links]}
+                  </Link>
+                ) : (
+                  <a key={key} href={`/#${key.toLowerCase()}`} className="hover:text-foreground transition-colors">
+                    {t.footer.links[key as keyof typeof t.footer.links]}
+                  </a>
+                );
+              })}
+            </div>
+
+            <p className="text-xs text-foreground/30">
+              {t.footer.rights}
+            </p>
+          </div>
+        </footer>
+      </div>
+    </BrowserRouter>
   );
 }
