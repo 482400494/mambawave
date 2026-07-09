@@ -154,11 +154,11 @@ export default function App() {
           className="text-[clamp(3rem,9vw,8rem)] leading-[0.95] font-black tracking-tight mb-10 max-w-5xl"
           style={{ fontFamily: "'UM Cloft', serif", color: "#328aa0" }}
         >
-          Build the
-          <br />
-          <span className="text-foreground/20">web,</span>
-          <br />
-          your way.
+            Premium
+            <br />
+            <span className="text-foreground/20">templates,</span>
+            <br />
+            ready to launch.
         </h1>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
