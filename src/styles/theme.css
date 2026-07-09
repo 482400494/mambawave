@@ -3,7 +3,7 @@
 :root {
   --font-size: 16px;
   --background: #002739;
-  --foreground: #328aa0;
+  --foreground: #ffffff;
   --card: #003347;
   --card-foreground: #328aa0;
   --popover: #003347;
@@ -14,7 +14,7 @@
   --secondary-foreground: #328aa0;
   --muted: #003347;
   --muted-foreground: #1f6070;
-  --accent: #ff5c00;
+  --accent: #f48711;
   --accent-foreground: #ffffff;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
@@ -55,7 +55,7 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: #f48711;
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);

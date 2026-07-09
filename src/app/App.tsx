@@ -69,13 +69,14 @@ export default function App() {
   return (
     <div
       className="min-h-screen bg-background text-foreground overflow-x-hidden"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      style={{ fontFamily: "'Tw Cen MT', 'Century Gothic', sans-serif" }}
     >
       {/* NAV */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? "bg-background border-b border-border" : "bg-transparent"
         }`}
+        style={{ fontFamily: "'Big John PRO', sans-serif" }}
       >
         <div className="max-w-screen-xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
           <a href="#" className="flex items-center">
@@ -150,7 +151,7 @@ export default function App() {
 
         <h1
           className="text-[clamp(3rem,9vw,8rem)] leading-[0.95] font-black tracking-tight mb-10 max-w-5xl"
-          style={{ fontFamily: "'Roboto Slab', serif" }}
+          style={{ fontFamily: "'UM Cloft', serif", color: "#328aa0" }}
         >
           Build the
           <br />
