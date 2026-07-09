@@ -384,11 +384,11 @@ export default function App() {
         style={{ fontFamily: "'Tw Cen MT', 'Century Gothic', sans-serif" }}
       >
         {/* BACKGROUND ISOTYPE WATERMARK */}
-        <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden mix-blend-plus-lighter">
+        <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
           <img 
             src={isotipo} 
             alt="" 
-            className="w-[150vw] md:w-[80vw] max-w-[1200px] opacity-10 brightness-150"
+            className="w-[150vw] md:w-[80vw] max-w-[1200px] opacity-10 invert grayscale mix-blend-screen"
           />
         </div>
         {/* NAV */}
