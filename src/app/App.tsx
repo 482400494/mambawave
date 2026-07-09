@@ -136,7 +136,7 @@ export default function App() {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-screen flex flex-col justify-end pb-20 pt-32 px-6 md:px-12 max-w-screen-xl mx-auto">
+      <section className="relative min-h-screen flex flex-col justify-end pb-32 pt-32 px-6 md:px-12 max-w-screen-xl mx-auto">
         <div className="absolute top-[30%] right-6 md:right-12 w-px bg-border h-48 opacity-40" />
         <div
           className="absolute top-[30%] right-[calc(50%-1px)] w-px opacity-10 h-32 hidden md:block"
