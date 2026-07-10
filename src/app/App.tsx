@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUpRight, Menu, X, ArrowRight, Globe } from "lucide-react";
+import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
 import isotipo from "@/imports/isotipo.png";
@@ -333,6 +333,13 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
             className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
           >
             contacto@boommambawave.com <ArrowUpRight size={15} />
+          </a>
+          <a
+            href="tel:+524922188690"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white text-sm font-medium tracking-widest uppercase hover:bg-accent/80 transition-colors duration-200"
+          >
+            <Phone size={15} />
+            {t.contact.call}
           </a>
           <a
             href="#templates"

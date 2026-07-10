@@ -62,6 +62,7 @@ export const translations = {
       title2: "lanzar",
       title3: "tu sitio?",
       browse: "Explorar plantillas",
+      call: "Llamar ahora — Consulta gratis 15 min",
     },
     footer: {
       links: {
@@ -148,6 +149,7 @@ export const translations = {
       title2: "launch",
       title3: "your site?",
       browse: "Browse templates",
+      call: "Call now — Free 15 min consultation",
     },
     footer: {
       links: {
