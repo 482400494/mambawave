@@ -335,7 +335,9 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
             contacto@boommambawave.com <ArrowUpRight size={15} />
           </a>
           <a
-            href="tel:+524922188690"
+            href="https://wa.me/524922188690?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20mi%20consulta%20gratuita%20de%2015%20minutos."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white text-sm font-medium tracking-widest uppercase hover:bg-accent/80 transition-colors duration-200"
           >
             <Phone size={15} />
