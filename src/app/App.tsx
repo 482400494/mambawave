@@ -336,6 +336,47 @@ function ScrollToTop() {
   return null;
 }
 
+function AnimatedRoutes({ lang, t }: { lang: 'es'|'en', t: any }) {
+  const location = useLocation();
+  return (
+    <div key={location.pathname} className="page-transition">
+      <Routes location={location}>
+        <Route path="/" element={<Home lang={lang} />} />
+        <Route 
+          path="/privacy" 
+          element={
+            <LegalPage 
+              title={t.legal.privacyTitle} 
+              date={t.legal.privacyDate} 
+              p1={t.legal.privacyP1} 
+              p2={t.legal.privacyP2} 
+              backText={t.legal.back}
+            />
+          } 
+        />
+        <Route 
+          path="/terms" 
+          element={
+            <LegalPage 
+              title={t.legal.termsTitle} 
+              date={t.legal.termsDate} 
+              p1={t.legal.termsP1} 
+              p2={t.legal.termsP2} 
+              backText={t.legal.back}
+            />
+          } 
+        />
+        <Route 
+          path="/contact" 
+          element={
+            <ContactPage t={t} />
+          } 
+        />
+      </Routes>
+    </div>
+  );
+}
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -471,39 +512,7 @@ export default function App() {
           )}
         </nav>
 
-        <Routes>
-          <Route path="/" element={<Home lang={lang} />} />
-          <Route 
-            path="/privacy" 
-            element={
-              <LegalPage 
-                title={t.legal.privacyTitle} 
-                date={t.legal.privacyDate} 
-                p1={t.legal.privacyP1} 
-                p2={t.legal.privacyP2} 
-                backText={t.legal.back}
-              />
-            } 
-          />
-          <Route 
-            path="/terms" 
-            element={
-              <LegalPage 
-                title={t.legal.termsTitle} 
-                date={t.legal.termsDate} 
-                p1={t.legal.termsP1} 
-                p2={t.legal.termsP2} 
-                backText={t.legal.back}
-              />
-            } 
-          />
-          <Route 
-            path="/contact" 
-            element={
-              <ContactPage t={t} />
-            } 
-          />
-        </Routes>
+        <AnimatedRoutes lang={lang} t={t} />
 
         {/* GLOBAL CONTACT FORM */}
         <div className="border-t border-border relative z-10">
