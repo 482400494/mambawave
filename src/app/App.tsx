@@ -508,7 +508,7 @@ export default function App() {
               {t.contact.whatsappTooltip}
               <div className="absolute -bottom-1 right-4 w-2 h-2 bg-foreground rotate-45" />
             </div>
-            <div className="w-14 h-14 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+            <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center hover:scale-110 transition-transform duration-300">
               <img src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(37,211,102,0.4)]" />
             </div>
           </div>
