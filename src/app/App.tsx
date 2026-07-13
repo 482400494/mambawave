@@ -506,7 +506,7 @@ export default function App() {
         </Routes>
 
         {/* GLOBAL CONTACT FORM */}
-        <div className="border-t border-border bg-background relative z-10">
+        <div className="border-t border-border relative z-10">
           <div className="py-24 px-6 md:px-12 max-w-lg mx-auto">
             <h3 className="text-lg font-black tracking-widest uppercase text-center mb-8" style={{ color: 'var(--accent)' }}>
               {t.contact.formTitle}
