@@ -529,21 +529,21 @@ export default function App() {
                 name="name"
                 required
                 placeholder={t.contact.formName}
-                className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors"
+                className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
               />
               <input
                 type="email"
                 name="email"
                 required
                 placeholder={t.contact.formEmail}
-                className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors"
+                className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
               />
               <textarea
                 name="message"
                 required
                 rows={5}
                 placeholder={t.contact.formMessage}
-                className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors resize-none"
+                className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors resize-none"
               />
               <button
                 type="submit"
