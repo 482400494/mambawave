@@ -6,6 +6,7 @@ import isotipo from "@/imports/isotipo.png";
 import { translations } from "@/locales/translations";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router";
 import { LegalPage } from "./pages/LegalPage";
+import { ContactPage } from "./pages/ContactPage";
 
 const projects = [
   {
@@ -310,96 +311,6 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="contact" className="py-36 px-6 md:px-12 max-w-screen-xl mx-auto text-center">
-        <p
-          className="text-xs tracking-[0.3em] uppercase mb-6"
-          style={{ color: "var(--accent)" }}
-        >
-          {t.contact.subtitle}
-        </p>
-        <h2
-          className="text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.92] tracking-tight mb-12"
-        >
-          {t.contact.title1}
-          <br />
-          <span className="text-foreground/20">{t.contact.title2}</span>
-          <br />
-          {t.contact.title3}
-        </h2>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="mailto:contacto@boommambawave.com"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
-          >
-            contacto@boommambawave.com <ArrowUpRight size={15} />
-          </a>
-          <a
-            href="https://wa.me/524922188690?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20mi%20consulta%20gratuita%20de%2015%20minutos."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white text-sm font-medium tracking-widest uppercase hover:bg-accent/80 transition-colors duration-200"
-          >
-            <Phone size={15} />
-            {t.contact.call}
-          </a>
-          <a
-            href="#templates"
-            className="inline-flex items-center gap-3 px-8 py-4 border border-border text-sm font-medium tracking-widest uppercase hover:border-foreground transition-colors duration-200"
-          >
-            {t.contact.browse}
-          </a>
-        </div>
-
-        {/* CONTACT FORM */}
-        <div className="mt-20 max-w-lg mx-auto">
-          <h3 className="text-lg font-black tracking-widest uppercase text-center mb-8" style={{ color: 'var(--accent)' }}>
-            {t.contact.formTitle}
-          </h3>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const form = e.target as HTMLFormElement;
-              const name = (form.elements.namedItem('name') as HTMLInputElement).value;
-              const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-              const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
-              const mailto = `mailto:contacto@boommambawave.com?subject=Contacto de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`)}`;
-              window.location.href = mailto;
-              form.reset();
-            }}
-            className="flex flex-col gap-5"
-          >
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder={t.contact.formName}
-              className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors"
-            />
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder={t.contact.formEmail}
-              className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors"
-            />
-            <textarea
-              name="message"
-              required
-              rows={5}
-              placeholder={t.contact.formMessage}
-              className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors resize-none"
-            />
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
-            >
-              <Send size={15} />
-              {t.contact.formSend}
-            </button>
-          </form>
-        </div>
-      </section>
     </>
   );
 }
@@ -469,12 +380,21 @@ export default function App() {
             <ul className="hidden md:flex items-center gap-10 text-sm font-medium tracking-wide uppercase">
               {navItems.map((item) => (
                 <li key={item.key}>
-                  <a
-                    href={`/#${item.key.toLowerCase()}`}
-                    className="text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    {item.label}
-                  </a>
+                  {item.key === 'Contact' ? (
+                    <Link
+                      to="/contact"
+                      className="text-foreground/70 hover:text-foreground transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={`/#${item.key.toLowerCase()}`}
+                      className="text-foreground/70 hover:text-foreground transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -515,16 +435,27 @@ export default function App() {
           {/* Mobile menu */}
           {menuOpen && (
             <div className="md:hidden bg-background border-t border-border px-6 py-8 flex flex-col gap-6">
-              {navItems.map((item) => (
-                <a
-                  key={item.key}
-                  href={`/#${item.key.toLowerCase()}`}
-                  className="text-2xl font-light"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.key === 'Contact' ? (
+                  <Link
+                    key={item.key}
+                    to="/contact"
+                    className="text-2xl font-light"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.key}
+                    href={`/#${item.key.toLowerCase()}`}
+                    className="text-2xl font-light"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
             </div>
           )}
         </nav>
@@ -553,6 +484,12 @@ export default function App() {
                 p2={t.legal.termsP2} 
                 backText={t.legal.back}
               />
+            } 
+          />
+          <Route 
+            path="/contact" 
+            element={
+              <ContactPage t={t} />
             } 
           />
         </Routes>
@@ -590,8 +527,8 @@ export default function App() {
 
             <div className="flex flex-wrap gap-8 text-xs text-foreground/40 tracking-widest uppercase">
               {Object.keys(t.footer.links).map((key) => {
-                const isLegal = key === "Privacy" || key === "Terms";
-                return isLegal ? (
+                const isRouterLink = key === "Privacy" || key === "Terms" || key === "Contact";
+                return isRouterLink ? (
                   <Link key={key} to={`/${key.toLowerCase()}`} className="hover:text-foreground transition-colors">
                     {t.footer.links[key as keyof typeof t.footer.links]}
                   </Link>
