@@ -505,6 +505,57 @@ export default function App() {
           />
         </Routes>
 
+        {/* GLOBAL CONTACT FORM */}
+        <div className="border-t border-border bg-background relative z-10">
+          <div className="py-24 px-6 md:px-12 max-w-lg mx-auto">
+            <h3 className="text-lg font-black tracking-widest uppercase text-center mb-8" style={{ color: 'var(--accent)' }}>
+              {t.contact.formTitle}
+            </h3>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+                const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+                const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+                const mailto = `mailto:contacto@boommambawave.com?subject=Contacto de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`)}`;
+                window.location.href = mailto;
+                form.reset();
+              }}
+              className="flex flex-col gap-5"
+            >
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder={t.contact.formName}
+                className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder={t.contact.formEmail}
+                className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors"
+              />
+              <textarea
+                name="message"
+                required
+                rows={5}
+                placeholder={t.contact.formMessage}
+                className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors resize-none"
+              />
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
+              >
+                <Send size={15} />
+                {t.contact.formSend}
+              </button>
+            </form>
+          </div>
+        </div>
+
         {/* FLOATING WHATSAPP BUTTON */}
         <a
           href="https://wa.me/524922188690?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n."
