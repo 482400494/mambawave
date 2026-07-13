@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone } from "lucide-react";
+import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
 import isotipo from "@/imports/isotipo.png";
@@ -350,6 +350,55 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
             {t.contact.browse}
           </a>
         </div>
+
+        {/* CONTACT FORM */}
+        <div className="mt-20 max-w-lg mx-auto">
+          <h3 className="text-lg font-black tracking-widest uppercase text-center mb-8" style={{ color: 'var(--accent)' }}>
+            {t.contact.formTitle}
+          </h3>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const form = e.target as HTMLFormElement;
+              const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+              const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+              const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+              const mailto = `mailto:contacto@boommambawave.com?subject=Contacto de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`)}`;
+              window.location.href = mailto;
+              form.reset();
+            }}
+            className="flex flex-col gap-5"
+          >
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder={t.contact.formName}
+              className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors"
+            />
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder={t.contact.formEmail}
+              className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors"
+            />
+            <textarea
+              name="message"
+              required
+              rows={5}
+              placeholder={t.contact.formMessage}
+              className="w-full px-5 py-4 bg-[#003347] border border-border text-foreground text-sm tracking-wide placeholder:text-foreground/30 focus:border-accent focus:outline-none transition-colors resize-none"
+            />
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
+            >
+              <Send size={15} />
+              {t.contact.formSend}
+            </button>
+          </form>
+        </div>
       </section>
     </>
   );
@@ -507,6 +556,25 @@ export default function App() {
             } 
           />
         </Routes>
+
+        {/* FLOATING WHATSAPP BUTTON */}
+        <a
+          href="https://wa.me/524922188690?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 z-50 group"
+          aria-label="WhatsApp"
+        >
+          <div className="relative">
+            <div className="absolute -top-12 right-0 bg-foreground text-background text-xs font-medium px-4 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              {t.contact.whatsappTooltip}
+              <div className="absolute -bottom-1 right-4 w-2 h-2 bg-foreground rotate-45" />
+            </div>
+            <div className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_30px_rgba(37,211,102,0.6)] hover:scale-110 transition-all duration-300">
+              <MessageCircle size={26} color="white" fill="white" />
+            </div>
+          </div>
+        </a>
 
         {/* FOOTER */}
         <footer className="border-t border-border px-6 md:px-12 py-10">

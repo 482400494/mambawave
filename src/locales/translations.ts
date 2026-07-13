@@ -63,6 +63,13 @@ export const translations = {
       title3: "tu sitio?",
       browse: "Explorar plantillas",
       call: "Llamar ahora — Consulta gratis 15 min",
+      formTitle: "Envíanos un mensaje",
+      formName: "Nombre completo",
+      formEmail: "Correo electrónico",
+      formMessage: "¿En qué podemos ayudarte?",
+      formSend: "Enviar mensaje",
+      formSent: "¡Mensaje enviado!",
+      whatsappTooltip: "¿Necesitas ayuda? Escríbenos",
     },
     footer: {
       links: {
@@ -150,6 +157,13 @@ export const translations = {
       title3: "your site?",
       browse: "Browse templates",
       call: "Call now — Free 15 min consultation",
+      formTitle: "Send us a message",
+      formName: "Full name",
+      formEmail: "Email address",
+      formMessage: "How can we help you?",
+      formSend: "Send message",
+      formSent: "Message sent!",
+      whatsappTooltip: "Need help? Write to us",
     },
     footer: {
       links: {
