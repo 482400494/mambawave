@@ -377,6 +377,74 @@ function AnimatedRoutes({ lang, t }: { lang: 'es'|'en', t: any }) {
   );
 }
 
+function GlobalContactForm({ t }: { t: any }) {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  return (
+    <div className="border-t border-border relative z-10">
+      <div className="py-24 px-6 md:px-12 max-w-lg mx-auto">
+        <h3 className="text-lg font-black tracking-widest uppercase text-center mb-8" style={{ color: 'var(--accent)' }}>
+          {t.contact.formTitle}
+        </h3>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const form = e.target as HTMLFormElement;
+            const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+            const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+            const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+            const templateType = (form.elements.namedItem('templateType') as HTMLInputElement)?.value;
+            
+            const templateText = templateType ? `Plantilla de interés: ${templateType}\n` : '';
+            const mailto = `mailto:contacto@boommambawave.com?subject=Contacto de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n${templateText}\n${message}`)}`;
+            window.location.href = mailto;
+            form.reset();
+          }}
+          className="flex flex-col gap-5"
+        >
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder={t.contact.formName}
+            className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
+          />
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder={t.contact.formEmail}
+            className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
+          />
+          {isHomePage && (
+            <input
+              type="text"
+              name="templateType"
+              placeholder={t.contact.formTemplate}
+              className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
+            />
+          )}
+          <textarea
+            name="message"
+            required
+            rows={5}
+            placeholder={t.contact.formMessage}
+            className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors resize-none"
+          />
+          <button
+            type="submit"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
+          >
+            <Send size={15} />
+            {t.contact.formSend}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -515,55 +583,7 @@ export default function App() {
         <AnimatedRoutes lang={lang} t={t} />
 
         {/* GLOBAL CONTACT FORM */}
-        <div className="border-t border-border relative z-10">
-          <div className="py-24 px-6 md:px-12 max-w-lg mx-auto">
-            <h3 className="text-lg font-black tracking-widest uppercase text-center mb-8" style={{ color: 'var(--accent)' }}>
-              {t.contact.formTitle}
-            </h3>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const form = e.target as HTMLFormElement;
-                const name = (form.elements.namedItem('name') as HTMLInputElement).value;
-                const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-                const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
-                const mailto = `mailto:contacto@boommambawave.com?subject=Contacto de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\n${message}`)}`;
-                window.location.href = mailto;
-                form.reset();
-              }}
-              className="flex flex-col gap-5"
-            >
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder={t.contact.formName}
-                className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
-              />
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder={t.contact.formEmail}
-                className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
-              />
-              <textarea
-                name="message"
-                required
-                rows={5}
-                placeholder={t.contact.formMessage}
-                className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors resize-none"
-              />
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
-              >
-                <Send size={15} />
-                {t.contact.formSend}
-              </button>
-            </form>
-          </div>
-        </div>
+        <GlobalContactForm t={t} />
 
         {/* FLOATING WHATSAPP BUTTON */}
         <a
