@@ -328,7 +328,7 @@ function ScrollToTop() {
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState<'es'|'en'>('es');
+  const [lang, setLang] = useState<'es'|'en'>('en');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
