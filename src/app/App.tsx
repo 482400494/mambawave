@@ -3,6 +3,7 @@ import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle } 
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
 import isotipo from "@/imports/isotipo.png";
+import whatsappIcon from "@/imports/whatsapp.png";
 import { translations } from "@/locales/translations";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router";
 import { LegalPage } from "./pages/LegalPage";
@@ -507,8 +508,8 @@ export default function App() {
               {t.contact.whatsappTooltip}
               <div className="absolute -bottom-1 right-4 w-2 h-2 bg-foreground rotate-45" />
             </div>
-            <div className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_30px_rgba(37,211,102,0.6)] hover:scale-110 transition-all duration-300">
-              <MessageCircle size={26} color="white" fill="white" />
+            <div className="w-14 h-14 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+              <img src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(37,211,102,0.4)]" />
             </div>
           </div>
         </a>
