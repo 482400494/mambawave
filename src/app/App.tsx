@@ -81,7 +81,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
         >
           {t.hero.titleLine1}
           <br />
-          <span className="text-foreground/20">{t.hero.titleLine2}</span>
+          <span className="text-foreground/60">{t.hero.titleLine2}</span>
           <br />
           {t.hero.titleLine3}
         </h1>
