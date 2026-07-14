@@ -161,44 +161,17 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filtered.map((project, i) => (
             <div
               key={project.id}
-              className={`group relative overflow-hidden bg-muted cursor-pointer ${
-                i === 0 ? "md:col-span-2 aspect-[16/7]" : "aspect-[4/3]"
-              }`}
+              className="group relative overflow-hidden bg-muted cursor-pointer aspect-[4/3] rounded-3xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
             >
               <img
                 src={project.img}
                 alt={project.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
-                <div className="flex items-end justify-between">
-                  <div>
-                    <p className="text-xs tracking-widest uppercase text-foreground/60 mb-1">
-                      {project.category} — {project.year}
-                    </p>
-                    <h3
-                      className="text-2xl font-black text-foreground"
-                    >
-                      {project.title}
-                    </h3>
-                  </div>
-                  <div className="w-10 h-10 bg-accent flex items-center justify-center flex-shrink-0">
-                    <ArrowUpRight size={18} color="white" />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 group-hover:opacity-0 transition-opacity duration-300">
-                <p
-                  className="text-xs tracking-widest uppercase text-foreground/50"
-                >
-                  {project.category} — {project.year}
-                </p>
-              </div>
             </div>
           ))}
         </div>
