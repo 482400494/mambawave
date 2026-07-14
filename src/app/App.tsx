@@ -352,11 +352,23 @@ function GlobalContactForm({ t }: { t: any }) {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div className="border-t border-border relative z-10">
-      <div className="py-24 px-6 md:px-12 max-w-lg mx-auto">
-        <h3 className="text-lg font-black tracking-widest uppercase text-center mb-8" style={{ color: 'var(--accent)' }}>
-          {t.contact.formTitle}
-        </h3>
+    <div className="border-t border-border relative z-10" style={{ background: "#001a27" }}>
+      <div className="py-24 px-6 md:px-12 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+        <div>
+          <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: 'var(--accent)' }}>
+            — {t.contact.subtitle}
+          </p>
+          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight mb-6">
+            {t.contact.title1} {t.contact.title2} {t.contact.title3}
+          </h2>
+          <p className="text-foreground/70 text-base mb-8 max-w-md">
+            {t.contact.formTitle}
+          </p>
+          <div className="text-sm font-medium" style={{ color: 'var(--accent)' }}>
+            ✓ {t.contact.call}
+          </div>
+        </div>
+
         <form
           onSubmit={(e) => {
             e.preventDefault();
