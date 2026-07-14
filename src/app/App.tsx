@@ -12,35 +12,35 @@ import { ContactPage } from "./pages/ContactPage";
 const projects = [
   {
     id: 1,
-    title: "Starter SaaS",
-    category: "SaaS",
+    title: "Boutique Lookbook",
+    category: "Moda y accesorios",
     year: "2025",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&auto=format",
-    alt: "Modern SaaS dashboard template with analytics",
+    alt: "Catálogo de moda con fichas de producto",
   },
   {
     id: 2,
-    title: "Storefront Pro",
-    category: "E-Commerce",
+    title: "Menú & Pedidos",
+    category: "Alimentos y bebidas",
     year: "2025",
     img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&auto=format",
-    alt: "E-commerce template with product grid layout",
+    alt: "Catálogo para restaurantes y reposterías",
   },
   {
     id: 3,
-    title: "Folio Minimal",
-    category: "Portfolio",
-    year: "2024",
+    title: "Beauty Shelf",
+    category: "Belleza y cuidado personal",
+    year: "2025",
     img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&h=600&fit=crop&auto=format",
-    alt: "Clean portfolio template with gallery view",
+    alt: "Catálogo de cosmética",
   },
   {
     id: 4,
-    title: "Analytics Hub",
-    category: "Dashboard",
+    title: "Agencia Pro",
+    category: "Servicios",
     year: "2024",
     img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=600&fit=crop&auto=format",
-    alt: "Dashboard template with charts and data widgets",
+    alt: "Catálogo de servicios profesionales",
   },
 ];
 
@@ -48,14 +48,14 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
   const [activeFilter, setActiveFilter] = useState("All");
   const t = translations[lang];
 
-  const filters = ["All", "SaaS", "E-Commerce", "Portfolio", "Dashboard"];
+  const filters = ["All", "Moda y accesorios", "Alimentos y bebidas", "Belleza y cuidado personal", "Servicios"];
   const filtered = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
 
   const stats = [
     { value: "500+", label: t.stats.t1 },
-    { value: "12K+", label: t.stats.t2 },
-    { value: "98%", label: t.stats.t3 },
-    { value: "24/7", label: t.stats.t4 },
+    { value: "2 días", label: t.stats.t2 },
+    { value: "EE.UU. / MX", label: t.stats.t3 },
+    { value: "98%", label: t.stats.t4 },
   ];
 
   return (
