@@ -363,51 +363,52 @@ function GlobalContactForm({ t }: { t: any }) {
             const form = e.target as HTMLFormElement;
             const name = (form.elements.namedItem('name') as HTMLInputElement).value;
             const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-            const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
-            const templateType = (form.elements.namedItem('templateType') as HTMLInputElement)?.value;
+            const message = (form.elements.namedItem('message') as HTMLInputElement).value;
             
-            const templateText = templateType ? `Plantilla de interés: ${templateType}\n` : '';
-            const mailto = `mailto:contacto@boommambawave.com?subject=Contacto de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n${templateText}\n${message}`)}`;
+            const mailto = `mailto:contacto@boommambawave.com?subject=Contacto de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\nTipo de negocio / Interés: ${message}`)}`;
             window.location.href = mailto;
             form.reset();
           }}
           className="flex flex-col gap-5"
         >
-          <input
-            type="text"
-            name="name"
-            required
-            placeholder={t.contact.formName}
-            className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
-          />
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder={t.contact.formEmail}
-            className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
-          />
-          {isHomePage && (
+          <div className="flex flex-col gap-2">
+            <label className="text-[10px] tracking-widest uppercase text-foreground/50">Nombre</label>
             <input
               type="text"
-              name="templateType"
-              placeholder={t.contact.formTemplate}
-              className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors"
+              name="name"
+              required
+              placeholder={t.contact.formName}
+              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-sm tracking-wide placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
             />
-          )}
-          <textarea
-            name="message"
-            required
-            rows={5}
-            placeholder={t.contact.formMessage}
-            className="w-full px-5 py-4 bg-[#003347] border border-border text-white text-sm tracking-wide placeholder:text-white/60 focus:border-accent focus:outline-none transition-colors resize-none"
-          />
+          </div>
+          
+          <div className="flex flex-col gap-2">
+            <label className="text-[10px] tracking-widest uppercase text-foreground/50">Email o WhatsApp</label>
+            <input
+              type="text"
+              name="email"
+              required
+              placeholder={t.contact.formEmail}
+              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-sm tracking-wide placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
+            />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-[10px] tracking-widest uppercase text-foreground/50">Tipo de negocio</label>
+            <input
+              type="text"
+              name="message"
+              required
+              placeholder="Ej. Boutique de ropa, repostería, spa..."
+              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-sm tracking-wide placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
+            />
+          </div>
+
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
+            className="mt-2 inline-flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#F0954B] text-[#0C2436] text-xs font-bold tracking-widest uppercase hover:bg-[#f6a666] transition-colors duration-200 rounded-[3px]"
           >
-            <Send size={15} />
-            {t.contact.formSend}
+            Quiero mi catálogo &rarr;
           </button>
         </form>
       </div>
@@ -443,7 +444,7 @@ export default function App() {
         style={{ fontFamily: "'Tw Cen MT', 'Century Gothic', sans-serif" }}
       >
         {/* BACKGROUND ISOTYPE WATERMARK */}
-        <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-[120vh] z-0 pointer-events-none flex items-center justify-center overflow-hidden">
           <img 
             src={isotipo} 
             alt="" 
