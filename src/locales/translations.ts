@@ -10,8 +10,8 @@ export const translations = {
     hero: {
       subtitle: "Boom Mamba Wave — catálogos digitales para vender online",
       titleLine1: "Tu catálogo,",
-      titleLine2: "listo para vender.",
-      titleLine3: "En menos de 2 días.",
+      titleLine2: "listo para vender",
+      titleLine3: "En menos de 2 días",
       desc: "Templates profesionales y fáciles de adaptar para que emprendedores y negocios en EE. UU. y México empiecen a vender online sin esperar semanas ni contratar un desarrollador.",
       explore: "Explorar catálogos →",
       btn1: "VER TEMPLATES DISPONIBLES →",
@@ -27,7 +27,7 @@ export const translations = {
     projects: {
       featured: "Nuestros catálogos",
       title1: "Diseñados para vender,",
-      title2: "no solo para verse bien.",
+      title2: "no solo para verse bien",
       filters: {
         All: "Todos",
         "Moda y accesorios": "Moda y accesorios",
@@ -39,7 +39,7 @@ export const translations = {
     },
     services: {
       subtitle: "Cómo funciona",
-      title: "De cero a vendiendo, en 3 pasos.",
+      title: "De cero a vendiendo, en 3 pasos",
       step: "Paso",
       items: [
         { label: "01", title: "Elige tu catálogo", desc: "Explora templates diseñados para tu tipo de negocio y productos." },
@@ -49,7 +49,7 @@ export const translations = {
     },
     testimonials: {
       subtitle: "Lo que dicen nuestros clientes",
-      title: "Experiencias Reales, Resultados Impecables.",
+      title: "Experiencias Reales, Resultados Impecables",
       quote: "Trabajar con Boom Mamba Wave fue la mejor decisión para nuestro negocio. Nos entregaron un catálogo digital espectacular muy rápido. El diseño es increíble, nuestros clientes pueden navegar nuestros productos de manera muy fácil y hemos cerrado el doble de ventas esta semana. Totalmente recomendado, el trato es sumamente profesional y amable.",
       author: "Carolina Gómez",
     },
@@ -57,7 +57,7 @@ export const translations = {
       subtitle: "¿Te suena familiar?",
       title1: "Tienes el",
       title2: "producto. No",
-      title3: "tienes dónde venderlo.",
+      title3: "tienes dónde venderlo",
       p1: "Sabes que necesitas presencia digital, pero contratar una agencia toma semanas y cuesta miles de dólares. Hacerlo tú mismo significa perder tiempo aprendiendo herramientas que no dominas.",
       p1bold: "Mientras tanto, cada día sin catálogo online es una venta que se va con la competencia.",
       p2: "No tienes un catálogo digital donde la gente pueda ver y comprar tus productos. Sientes frustración por no avanzar rápido. Mereces vender de forma profesional sin convertirte en programador ni gastar de más.",
@@ -126,8 +126,8 @@ export const translations = {
     hero: {
       subtitle: "Boom Mamba Wave — digital catalogs to sell online",
       titleLine1: "Your catalog,",
-      titleLine2: "ready to sell.",
-      titleLine3: "In less than 2 days.",
+      titleLine2: "ready to sell",
+      titleLine3: "In less than 2 days",
       desc: "Professional and easy-to-adapt templates so that entrepreneurs and businesses in the US and Mexico can start selling online without waiting weeks or hiring a developer.",
       explore: "Explore catalogs →",
       btn1: "VIEW AVAILABLE TEMPLATES →",
@@ -143,7 +143,7 @@ export const translations = {
     projects: {
       featured: "Our catalogs",
       title1: "Designed to sell,",
-      title2: "not just to look good.",
+      title2: "not just to look good",
       filters: {
         All: "All",
         "Moda y accesorios": "Fashion & Accessories",
@@ -155,7 +155,7 @@ export const translations = {
     },
     services: {
       subtitle: "How it works",
-      title: "From zero to selling, in 3 steps.",
+      title: "From zero to selling, in 3 steps",
       step: "Step",
       items: [
         { label: "01", title: "Choose your catalog", desc: "Explore templates designed for your type of business and products." },
@@ -165,7 +165,7 @@ export const translations = {
     },
     testimonials: {
       subtitle: "What our clients say",
-      title: "Real Experiences, Impeccable Results.",
+      title: "Real Experiences, Impeccable Results",
       quote: "Working with Boom Mamba Wave was the best decision for our business. They delivered a spectacular digital catalog very quickly. The design is amazing, our customers can navigate our products very easily and we have closed double the sales this week. Totally recommended, the treatment is extremely professional and friendly.",
       author: "Carolina Gómez",
     },
@@ -173,7 +173,7 @@ export const translations = {
       subtitle: "Does this sound familiar?",
       title1: "You have the",
       title2: "product. You don't",
-      title3: "have where to sell it.",
+      title3: "have where to sell it",
       p1: "You know you need a digital presence, but hiring an agency takes weeks and costs thousands of dollars. Doing it yourself means wasting time learning tools you don't master.",
       p1bold: "Meanwhile, every day without an online catalog is a sale that goes to the competition.",
       p2: "You don't have a digital catalog where people can see and buy your products. You feel frustration for not advancing fast. You deserve to sell professionally without becoming a programmer or overspending.",
