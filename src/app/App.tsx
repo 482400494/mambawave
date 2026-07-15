@@ -566,7 +566,7 @@ function GlobalContactForm({ t }: { t: any }) {
               name="name"
               required
               placeholder={t.contact.formName}
-              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-base tracking-wide placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
+              className="w-full px-6 py-4 bg-[#0a293c] border border-border/40 text-white text-base tracking-wide placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors rounded-full"
             />
           </div>
           
@@ -577,7 +577,7 @@ function GlobalContactForm({ t }: { t: any }) {
               name="email"
               required
               placeholder={t.contact.formEmail}
-              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-base tracking-wide placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
+              className="w-full px-6 py-4 bg-[#0a293c] border border-border/40 text-white text-base tracking-wide placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors rounded-full"
             />
           </div>
 
@@ -588,14 +588,14 @@ function GlobalContactForm({ t }: { t: any }) {
               name="message"
               required
               placeholder="Ej. Boutique de ropa, repostería, spa..."
-              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-base tracking-wide placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
+              className="w-full px-6 py-4 bg-[#0a293c] border border-border/40 text-white text-base tracking-wide placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors rounded-full"
             />
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-2 inline-flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#F0954B] text-[#0C2436] text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-colors duration-200 rounded-[3px] disabled:opacity-70 disabled:cursor-not-allowed"
+            className="mt-2 inline-flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#F0954B] text-[#0C2436] text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-colors duration-200 rounded-full disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (t.contact.formSend || 'Enviando...') : (
               <>Quiero mi catálogo &rarr;</>
