@@ -102,13 +102,13 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 mt-8 md:mt-0">
             <a
               href="#templates"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-4 bg-[#F0954B] text-[#0C2436] text-xs md:text-sm font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-all duration-300 rounded-[3px] whitespace-nowrap"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-4 bg-[#F0954B] text-[#0C2436] text-xs md:text-sm font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-all duration-300 rounded-full whitespace-nowrap"
             >
               {t.hero.btn1}
             </a>
             <a
               href="#contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-4 bg-transparent border border-white/20 text-white text-xs md:text-sm font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:border-white hover:bg-white/5 transition-all duration-300 rounded-[3px] whitespace-nowrap"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-4 bg-transparent border border-white/20 text-white text-xs md:text-sm font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:border-white hover:bg-white/5 transition-all duration-300 rounded-full whitespace-nowrap"
             >
               {t.hero.btn2}
             </a>
@@ -453,7 +453,7 @@ function ThankYouPage({ t }: { t: any }) {
         </p>
         <Link 
           to="/"
-          className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#001a27] text-sm font-bold tracking-widest uppercase hover:bg-gray-200 transition-colors rounded-[3px]"
+          className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#001a27] text-sm font-bold tracking-widest uppercase hover:bg-gray-200 transition-colors rounded-full"
         >
           {t.thankYou.back}
         </Link>

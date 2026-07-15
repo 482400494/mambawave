@@ -57,7 +57,7 @@ export function ContactPage({
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="mailto:contacto@boommambawave.com"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background text-sm font-medium tracking-widest uppercase hover:bg-accent hover:text-white transition-colors duration-200 rounded-full"
           >
             contacto@boommambawave.com <ArrowUpRight size={15} />
           </a>
@@ -65,7 +65,7 @@ export function ContactPage({
             href="https://wa.me/524922188690?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20mi%20consulta%20gratuita%20de%2015%20minutos."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white text-sm font-medium tracking-widest uppercase hover:bg-accent/80 transition-colors duration-200"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white text-sm font-medium tracking-widest uppercase hover:bg-accent/80 transition-colors duration-200 rounded-full"
           >
             <Phone size={15} />
             {t.contact.call}
