@@ -600,9 +600,9 @@ export default function App() {
           className="fixed bottom-8 right-8 z-50 group flex justify-end"
           aria-label="WhatsApp"
         >
-          <div className="flex items-center bg-[#022135] rounded-full p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-500 ease-in-out w-[60px] group-hover:w-[200px] overflow-hidden">
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap pl-4 flex-1">
-              <p className="text-white text-[13px] font-bold leading-[1.2]">
+          <div className="flex items-center bg-[#022135] rounded-full p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-500 ease-in-out">
+            <div className="overflow-hidden transition-all duration-500 ease-in-out max-w-0 group-hover:max-w-[140px] opacity-0 group-hover:opacity-100">
+              <p className="text-white text-[13px] font-bold leading-[1.2] whitespace-nowrap pl-4 pr-3 py-1">
                 Cotiza por<br />WhatsApp
               </p>
             </div>
