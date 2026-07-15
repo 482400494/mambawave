@@ -330,8 +330,8 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
             <p className="text-white/80 leading-relaxed max-w-md mb-10">
               {t.about.p2}
             </p>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-3 text-sm font-medium uppercase tracking-widest group text-white"
             >
               <span>{t.about.meet}</span>
@@ -339,7 +339,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 className="w-8 h-px transition-all duration-300 group-hover:w-16"
                 style={{ background: "var(--accent)" }}
               />
-            </a>
+            </Link>
             <SectionCTA section="Nosotros" text={t.contact.moreInfo} align="start" />
           </motion.div>
           <motion.div 
