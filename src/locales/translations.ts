@@ -79,6 +79,11 @@ export const translations = {
       formTemplate: "¿Qué tipo de catálogo te interesa?",
       formSend: "Enviar mensaje",
       formSent: "¡Mensaje enviado!",
+      labelName: "Nombre",
+      labelEmail: "Email o WhatsApp",
+      labelBusiness: "Tipo de negocio",
+      placeholderBusiness: "Ej. Boutique de ropa, repostería, spa...",
+      btnCatalog: "Quiero mi catálogo",
       whatsappTooltip: "¿Necesitas ayuda? Escríbenos",
     },
     thankYou: {
@@ -189,6 +194,11 @@ export const translations = {
       formTemplate: "What kind of catalog are you interested in?",
       formSend: "Send message",
       formSent: "Message sent!",
+      labelName: "Name",
+      labelEmail: "Email or WhatsApp",
+      labelBusiness: "Business Type",
+      placeholderBusiness: "e.g., Clothing boutique, bakery, spa...",
+      btnCatalog: "I want my catalog",
       whatsappTooltip: "Need help? Write to us",
     },
     thankYou: {
