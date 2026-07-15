@@ -460,17 +460,17 @@ function GlobalContactForm({ t }: { t: any }) {
             const message = (form.elements.namedItem('message') as HTMLInputElement).value;
             
             try {
-              const params = new URLSearchParams();
-              params.append('name', name);
-              params.append('email', email);
-              params.append('message', message);
+              const formData = new FormData();
+              formData.append('access_key', '7f996f1b-aa87-4480-9353-b613b0a99b5f');
+              formData.append('name', name);
+              formData.append('email', email);
+              formData.append('message', message);
+              formData.append('subject', `Nuevo contacto de ${name} (Boom Mamba Wave)`);
+              formData.append('from_name', 'Boom Mamba Wave Form');
 
-              const res = await fetch('/contact.php', {
+              const res = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: params.toString()
+                body: formData
               });
               
               if (res.ok) {
