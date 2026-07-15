@@ -777,7 +777,7 @@ export default function App() {
           className="fixed bottom-8 right-8 z-50 group flex items-center justify-end"
           aria-label="WhatsApp"
         >
-          <div className="overflow-hidden transition-all duration-500 ease-in-out max-w-0 group-hover:max-w-[160px] opacity-0 group-hover:opacity-100 bg-[#022135] rounded-l-full -mr-8 pr-8 py-3 shadow-lg">
+          <div className="overflow-hidden transition-all duration-500 ease-in-out max-w-0 group-hover:max-w-[180px] opacity-0 group-hover:opacity-100 bg-[#022135] rounded-full -mr-12 pr-14 py-3 shadow-lg">
             <p className="text-white text-[15px] font-bold leading-[1.1] whitespace-nowrap pl-6 pr-2">
               {t.contact.ctaLine1}<br />{t.contact.ctaLine2}
             </p>
