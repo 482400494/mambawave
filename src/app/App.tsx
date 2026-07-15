@@ -691,7 +691,7 @@ export default function App() {
               </button>
               <a
                 href="/#templates"
-                className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2 bg-foreground text-background hover:bg-accent hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2 bg-foreground text-background hover:bg-accent hover:text-white transition-colors rounded-full"
               >
                 {t.nav.browse} <ArrowUpRight size={14} />
               </a>
