@@ -189,15 +189,15 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory w-full hide-scrollbar [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {filtered.map((project, i) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative overflow-hidden bg-muted cursor-pointer aspect-video rounded-3xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
+              className="flex-shrink-0 w-[90%] sm:w-[80%] md:w-[calc(50%-1rem)] snap-start group relative overflow-hidden bg-muted cursor-pointer aspect-video rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             >
               <img
                 src={project.img}
