@@ -184,45 +184,27 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="border-t border-border py-28 px-6 md:px-12 max-w-screen-xl mx-auto">
-        <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
-          <div>
-            <p
-              className="text-xs tracking-[0.3em] uppercase mb-4"
-              style={{ color: "var(--accent)" }}
-            >
-              {t.services.subtitle}
-            </p>
-            <h2
-              className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight"
-            >
-              {t.services.title}
-            </h2>
-          </div>
-          <div className="divide-y divide-border">
-            {t.services.items.map((s) => (
-              <div key={s.label} className="group flex items-start gap-8 py-8 cursor-pointer">
-                <span
-                  className="text-xs mt-1 flex-shrink-0"
-                  style={{ color: "var(--accent)" }}
-                >
-                  {s.label}
-                </span>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between">
-                    <h3
-                      className="text-xl font-black group-hover:text-accent transition-colors"
-                    >
-                      {s.title}
-                    </h3>
-                    <ArrowRight
-                      size={18}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity"
-                      style={{ color: "var(--accent)" }}
-                    />
-                  </div>
-                  <p className="text-sm text-foreground/50 mt-2 leading-relaxed max-w-md">{s.desc}</p>
+      <section id="services" className="border-t border-border py-28 px-6 md:px-12 relative z-10" style={{ background: "#001a27" }}>
+        <div className="max-w-screen-xl mx-auto">
+          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight text-center mb-16">
+            {t.services.title}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {t.services.items.map((s: any, i: number) => (
+              <div 
+                key={s.label} 
+                className="group flex flex-col p-8 rounded-2xl transition-all duration-300 cursor-pointer bg-[#0a293c] border border-border/40 hover:bg-[#328aa0] hover:text-white"
+              >
+                <div className="w-12 h-12 bg-white text-[#0a293c] flex items-center justify-center font-black text-xl rounded-sm mb-8 transition-transform duration-300 group-hover:scale-110 shadow-lg">
+                  {i + 1}
                 </div>
+                <h3 className="text-xl font-bold mb-4">{s.title}</h3>
+                <p className="text-sm opacity-80 leading-relaxed flex-1">{s.desc}</p>
+                {i === 0 && (
+                  <div className="mt-8 text-sm font-medium opacity-60 group-hover:opacity-100 flex items-center gap-2">
+                    Paso 1 <ArrowRight size={14} />
+                  </div>
+                )}
               </div>
             ))}
           </div>
