@@ -378,7 +378,7 @@ function GlobalContactForm({ t }: { t: any }) {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div className="border-t border-border relative z-10" style={{ background: "#001a27" }}>
+    <div className="border-t border-border/10 relative z-10 bg-[#238AA0] text-white">
       <div className="py-24 px-6 md:px-12 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         <div>
           <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: 'var(--accent)' }}>
@@ -387,7 +387,7 @@ function GlobalContactForm({ t }: { t: any }) {
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight mb-6">
             {t.contact.title1} {t.contact.title2} {t.contact.title3}
           </h2>
-          <p className="text-foreground/70 text-base mb-8 max-w-md">
+          <p className="text-white/90 text-base mb-8 max-w-md">
             {t.contact.formTitle}
           </p>
           <div className="text-sm font-medium" style={{ color: 'var(--accent)' }}>
@@ -410,7 +410,7 @@ function GlobalContactForm({ t }: { t: any }) {
           className="flex flex-col gap-5"
         >
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] tracking-widest uppercase text-foreground/50">Nombre</label>
+            <label className="text-[10px] tracking-widest uppercase text-white/70 font-bold">Nombre</label>
             <input
               type="text"
               name="name"
@@ -421,7 +421,7 @@ function GlobalContactForm({ t }: { t: any }) {
           </div>
           
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] tracking-widest uppercase text-foreground/50">Email o WhatsApp</label>
+            <label className="text-[10px] tracking-widest uppercase text-white/70 font-bold">Email o WhatsApp</label>
             <input
               type="text"
               name="email"
@@ -432,7 +432,7 @@ function GlobalContactForm({ t }: { t: any }) {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] tracking-widest uppercase text-foreground/50">Tipo de negocio</label>
+            <label className="text-[10px] tracking-widest uppercase text-white/70 font-bold">Tipo de negocio</label>
             <input
               type="text"
               name="message"
