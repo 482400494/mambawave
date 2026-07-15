@@ -110,7 +110,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       </section>
 
       {/* STATS BAR */}
-      <div className="border-y border-border" style={{ background: "#001a27" }}>
+      <div className="border-y border-border/10 bg-white relative z-10">
         <div className="max-w-screen-xl mx-auto px-6 md:px-12 py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s) => (
             <div key={s.label} className="flex flex-col gap-1">
@@ -120,15 +120,16 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
               >
                 {s.value}
               </span>
-              <span className="text-xs tracking-widest uppercase text-foreground/50">{s.label}</span>
+              <span className="text-xs tracking-widest uppercase text-[#001a27]/50 font-bold">{s.label}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* PROJECTS */}
-      <section id="templates" className="py-28 px-6 md:px-12 max-w-screen-xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+      <section id="templates" className="py-28 px-6 md:px-12 relative z-10 bg-[#001a27] text-white">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div>
             <p
               className="text-xs tracking-[0.3em] uppercase mb-4"
@@ -177,14 +178,15 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
         </div>
 
         {filtered.length === 0 && (
-          <div className="py-24 text-center text-foreground/30 text-sm tracking-widest uppercase">
+          <div className="py-24 text-center text-white/30 text-sm tracking-widest uppercase">
             {t.projects.empty}
           </div>
         )}
+        </div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="border-t border-border py-28 px-6 md:px-12 relative z-10" style={{ background: "#001a27" }}>
+      <section id="services" className="border-t border-border/10 py-28 px-6 md:px-12 relative z-10 bg-white text-[#001a27]">
         <div className="max-w-screen-xl mx-auto">
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight text-center mb-16">
             {t.services.title}
@@ -212,14 +214,14 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" className="bg-[#f2f6f9] text-[#001a27] relative z-10 border-t border-border/10">
+      <section id="testimonials" className="bg-[#001a27] text-white relative z-10 border-t border-border/10">
         <div className="max-w-[1600px] mx-auto grid md:grid-cols-2">
           {/* Left Column */}
-          <div className="p-12 md:p-24 flex flex-col justify-center relative bg-white md:bg-transparent">
-            <p className="text-xs font-black uppercase tracking-widest text-[#001a27]/50 mb-6">
+          <div className="p-12 md:p-24 flex flex-col justify-center relative bg-[#001a27] md:bg-transparent">
+            <p className="text-xs font-black uppercase tracking-widest text-white/50 mb-6">
               {t.testimonials.subtitle}
             </p>
-            <h2 className="text-[clamp(2.5rem,4vw,4rem)] font-black text-[#001a27] mb-10 leading-[1.1] tracking-tight">
+            <h2 className="text-[clamp(2.5rem,4vw,4rem)] font-black text-white mb-10 leading-[1.1] tracking-tight">
               {t.testimonials.title}
             </h2>
             
@@ -232,16 +234,16 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
               <Star size={20} fill="currentColor" color="currentColor" />
             </div>
 
-            <p className="text-lg md:text-xl text-[#001a27]/80 leading-[1.8] mb-16 font-medium max-w-xl">
+            <p className="text-lg md:text-xl text-white/80 leading-[1.8] mb-16 font-medium max-w-xl">
               "{t.testimonials.quote}"
             </p>
 
             <div className="flex items-center justify-between mt-auto">
               <div className="flex items-center gap-5">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&auto=format" alt="Client" className="w-14 h-14 rounded-full object-cover shadow-md" />
-                <span className="font-bold text-lg text-[#001a27]">{t.testimonials.author}</span>
+                <span className="font-bold text-lg text-white">{t.testimonials.author}</span>
               </div>
-              <div className="w-16 h-16 bg-[#00283c] rounded-full flex items-center justify-center shadow-xl flex-shrink-0">
+              <div className="w-16 h-16 bg-[#0a293c] rounded-full flex items-center justify-center shadow-xl flex-shrink-0">
                  <Quote size={28} color="#4FB8C7" fill="#4FB8C7" className="rotate-180" />
               </div>
             </div>
@@ -254,33 +256,33 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="border-t border-border py-28 px-6 md:px-12" style={{ background: "#001a27" }}>
+      <section id="about" className="border-t border-border/10 py-28 px-6 md:px-12 bg-white text-[#001a27]">
         <div className="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
             <p
-              className="text-xs tracking-[0.3em] uppercase mb-4"
+              className="text-xs tracking-[0.3em] uppercase mb-4 font-bold"
               style={{ color: "var(--accent)" }}
             >
               {t.about.subtitle}
             </p>
-            <h2
-              className="text-[clamp(2rem,5vw,4rem)] font-black leading-tight mb-8"
-            >
-              {t.about.title1}
+            <h2 className="text-[clamp(2.5rem,4vw,3.5rem)] font-black leading-tight mb-8">
+              {t.about.title1}{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-[#f0b48a]">
+                {t.about.titleHighlight}
+              </span>
               <br />
               {t.about.title2}
-              <br />
               {t.about.title3}
             </h2>
-            <p className="text-foreground/50 leading-relaxed max-w-md mb-8">
+            <p className="text-[#001a27]/80 leading-relaxed max-w-md mb-8">
               {t.about.p1} <em>{t.about.p1bold}</em>
             </p>
-            <p className="text-foreground/50 leading-relaxed max-w-md mb-10">
+            <p className="text-[#001a27]/80 leading-relaxed max-w-md mb-10">
               {t.about.p2}
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 text-sm font-medium uppercase tracking-widest group"
+              className="inline-flex items-center gap-3 text-sm font-medium uppercase tracking-widest group text-[#001a27]"
             >
               <span>{t.about.meet}</span>
               <span
