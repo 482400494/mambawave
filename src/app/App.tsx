@@ -197,12 +197,12 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative overflow-hidden bg-muted cursor-pointer aspect-[4/3] rounded-3xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
+              className="group relative overflow-hidden bg-muted cursor-pointer aspect-video rounded-3xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
             >
               <img
                 src={project.img}
                 alt={project.alt}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
             </motion.div>
           ))}
