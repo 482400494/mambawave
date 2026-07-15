@@ -8,6 +8,7 @@ import { translations } from "@/locales/translations";
 import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router";
 import { LegalPage } from "./pages/LegalPage";
 import { ContactPage } from "./pages/ContactPage";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -65,14 +66,20 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
         <div className="absolute top-[30%] right-6 md:right-12 w-px bg-border h-48 opacity-40" />
 
 
-        <p
-          className="text-xs tracking-[0.3em] uppercase mb-10"
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-6"
           style={{ color: "var(--accent)" }}
         >
           {t.hero.subtitle}
-        </p>
+        </motion.p>
 
-        <h1
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-[clamp(2.5rem,7vw,6.5rem)] leading-[1.1] font-black tracking-tight mb-10 max-w-5xl"
           style={{ fontFamily: "'UM Cloft', serif", color: "#328aa0" }}
         >
@@ -81,9 +88,14 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           <span className="text-foreground/60">{t.hero.titleLine2}</span>
           <br />
           {t.hero.titleLine3}
-        </h1>
+        </motion.h1>
 
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:pr-24">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:pr-24"
+        >
           <p className="text-base text-foreground/60 max-w-sm leading-relaxed">
             {t.hero.desc}
           </p>
@@ -99,7 +111,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
               {t.hero.explore}
             </a>
           </div>
-        </div>
+        </motion.div>
 
         <div className="absolute bottom-8 right-6 md:right-12 hidden md:flex flex-col items-center gap-2">
           <span className="text-xs tracking-widest uppercase text-foreground/30" style={{ writingMode: "vertical-rl" }}>
@@ -112,8 +124,15 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       {/* STATS BAR */}
       <div className="border-y border-border" style={{ background: "#001a27" }}>
         <div className="max-w-screen-xl mx-auto px-6 md:px-12 py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s) => (
-            <div key={s.label} className="flex flex-col gap-1">
+          {stats.map((s, i) => (
+            <motion.div 
+              key={s.label} 
+              className="flex flex-col gap-1"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
               <span
                 className="text-4xl font-black leading-none"
                 style={{ color: "var(--accent)" }}
@@ -121,7 +140,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 {s.value}
               </span>
               <span className="text-xs tracking-widest uppercase text-white/50">{s.label}</span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -130,7 +149,12 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       <section id="templates" className="py-28 px-6 md:px-12 relative z-10 bg-[#238AA0] text-white">
         <div className="max-w-screen-xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+          >
             <p
               className="text-lg font-bold tracking-[0.25em] uppercase mb-4"
               style={{ color: "#002739" }}
@@ -144,7 +168,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
               <br />
               {t.projects.title2}
             </h2>
-          </div>
+          </motion.div>
           <div className="flex flex-wrap gap-2">
             {filters.map((f) => (
               <button
@@ -164,8 +188,12 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filtered.map((project, i) => (
-            <div
+            <motion.div
               key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group relative overflow-hidden bg-muted cursor-pointer aspect-[4/3] rounded-3xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
             >
               <img
@@ -173,7 +201,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 alt={project.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -189,13 +217,23 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       {/* SERVICES */}
       <section id="services" className="border-t border-border/10 py-28 px-6 md:px-12 relative z-10 bg-[#001a27] text-white">
         <div className="max-w-screen-xl mx-auto">
-          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+            className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight text-center mb-16"
+          >
             {t.services.title}
-          </h2>
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {t.services.items.map((s: any, i: number) => (
-              <div 
+              <motion.div 
                 key={s.label} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group flex flex-col p-8 rounded-2xl transition-all duration-300 cursor-pointer bg-[#0a293c] border border-border/40 hover:bg-[#328aa0] hover:text-white"
               >
                 <div className="w-12 h-12 bg-white text-[#0a293c] flex items-center justify-center font-black text-xl rounded-sm mb-8 transition-transform duration-300 group-hover:scale-110 shadow-lg">
@@ -208,7 +246,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                     Paso 1 <ArrowRight size={14} />
                   </div>
                 )}
-              </div>
+              </motion.div>
             ))}
           </div>
           <SectionCTA section="Cómo funciona" text={t.contact.moreInfo} />
@@ -219,7 +257,13 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       <section id="testimonials" className="bg-[#238AA0] text-white relative z-10 border-t border-border/10">
         <div className="max-w-[1600px] mx-auto grid md:grid-cols-2">
           {/* Left Column */}
-          <div className="p-12 md:p-24 flex flex-col justify-center relative bg-[#238AA0] md:bg-transparent">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7 }}
+            className="p-12 md:p-24 flex flex-col justify-center relative bg-[#238AA0] md:bg-transparent"
+          >
             <p className="text-xs font-black uppercase tracking-widest text-white/70 mb-6">
               {t.testimonials.subtitle}
             </p>
@@ -249,7 +293,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                  <Quote size={28} color="#4FB8C7" fill="#4FB8C7" className="rotate-180" />
               </div>
             </div>
-          </div>
+          </motion.div>
           {/* Right Column */}
           <div className="hidden md:block relative h-full min-h-[700px]">
             <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=1000&h=1400&fit=crop&auto=format" alt="Business results" className="absolute inset-0 w-full h-full object-cover" />
@@ -260,7 +304,12 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       {/* ABOUT */}
       <section id="about" className="border-t border-border/10 py-28 px-6 md:px-12 bg-[#001a27] text-white">
         <div className="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+          >
             <p
               className="text-sm tracking-[0.25em] uppercase mb-4 font-bold"
               style={{ color: "var(--accent)" }}
@@ -293,9 +342,14 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
               />
             </a>
             <SectionCTA section="Nosotros" text={t.contact.moreInfo} align="start" />
-          </div>
-
-          <div className="relative aspect-square bg-foreground/20 overflow-hidden">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="relative aspect-square bg-foreground/20 overflow-hidden"
+          >
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=700&fit=crop&auto=format"
               alt="Team of designers and developers collaborating in a modern office"
@@ -307,7 +361,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
             >
               {t.about.teamImg}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -435,7 +489,12 @@ function GlobalContactForm({ t }: { t: any }) {
   return (
     <div id="contact" className="border-t border-border/10 relative z-10 bg-[#238AA0] text-white">
       <div className="py-24 px-6 md:px-12 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="text-lg font-bold tracking-[0.25em] uppercase mb-4" style={{ color: '#002739' }}>
             — {t.contact.subtitle}
           </p>
@@ -448,9 +507,13 @@ function GlobalContactForm({ t }: { t: any }) {
           <div className="text-xl font-bold" style={{ color: '#002739' }}>
             ✓ {t.contact.call}
           </div>
-        </div>
+        </motion.div>
 
-        <form
+        <motion.form
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           onSubmit={async (e) => {
             e.preventDefault();
             setIsSubmitting(true);
@@ -535,7 +598,7 @@ function GlobalContactForm({ t }: { t: any }) {
               <>Quiero mi catálogo &rarr;</>
             )}
           </button>
-        </form>
+        </motion.form>
       </div>
     </div>
   );
