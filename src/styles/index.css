@@ -10,3 +10,7 @@
 .page-transition {
   animation: fadeIn 0.4s ease-out forwards;
 }
+
+button, a.inline-flex, .inline-flex {
+  font-family: 'UM Cloft', serif !important;
+}
