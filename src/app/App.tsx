@@ -55,8 +55,24 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
 
   const scrollCarousel = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
-      const scrollAmount = window.innerWidth > 768 ? carouselRef.current.clientWidth / 2 : carouselRef.current.clientWidth;
-      carouselRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+      const container = carouselRef.current;
+      const scrollAmount = window.innerWidth > 768 ? container.clientWidth / 2 : container.clientWidth;
+      
+      if (direction === 'right') {
+        // Wrap to the beginning if we reached the end
+        if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+          container.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      } else {
+        // Wrap to the end if we are at the beginning
+        if (container.scrollLeft <= 10) {
+          container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' });
+        } else {
+          container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+      }
     }
   };
   const t = translations[lang];
