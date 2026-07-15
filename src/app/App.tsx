@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle, Star, Quote, FileText, Search, Rocket } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle, Star, Quote, FileText, Search, Rocket, ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
 import isotipo from "@/imports/isotipo.png";
@@ -51,6 +51,14 @@ const projects = [
 
 function Home({ lang }: { lang: 'en' | 'es' }) {
   const [activeFilter, setActiveFilter] = useState("All");
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = window.innerWidth > 768 ? carouselRef.current.clientWidth / 2 : carouselRef.current.clientWidth;
+      carouselRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
   const t = translations[lang];
 
   const filters = ["All", "Agencias", "Inmobiliaria", "Audiovisual", "Legal"];
@@ -189,23 +197,41 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           </div>
         </div>
 
-        <div className="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory w-full hide-scrollbar [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-          {filtered.map((project, i) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex-shrink-0 w-[90%] sm:w-[80%] md:w-[calc(50%-1rem)] snap-start group relative overflow-hidden bg-muted cursor-pointer aspect-video rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-            >
-              <img
-                src={project.img}
-                alt={project.alt}
-                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-              />
-            </motion.div>
-          ))}
+        <div className="relative group/carousel">
+          <button
+            onClick={() => scrollCarousel('left')}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 md:-ml-6 z-10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white text-[#001a27] rounded-full shadow-2xl opacity-0 md:group-hover/carousel:opacity-100 transition-all duration-300 hover:scale-110"
+            aria-label="Anterior"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          
+          <button
+            onClick={() => scrollCarousel('right')}
+            className="absolute right-0 top-1/2 -translate-y-1/2 -mr-2 md:-mr-6 z-10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white text-[#001a27] rounded-full shadow-2xl opacity-0 md:group-hover/carousel:opacity-100 transition-all duration-300 hover:scale-110"
+            aria-label="Siguiente"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          <div ref={carouselRef} className="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory w-full hide-scrollbar [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            {filtered.map((project, i) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="flex-shrink-0 w-[90%] sm:w-[80%] md:w-[calc(50%-1rem)] snap-start group relative overflow-hidden bg-muted cursor-pointer aspect-video rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <img
+                  src={project.img}
+                  alt={project.alt}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {filtered.length === 0 && (
