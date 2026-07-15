@@ -228,9 +228,9 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-4 lg:gap-8 mt-24 mb-16 w-full">
             {t.services.items.map((s: any, i: number) => {
               const icons = [
-                <FileText size={48} className="text-white stroke-[1.5]" />,
-                <Search size={48} className="text-white stroke-[1.5]" />,
-                <Rocket size={48} className="text-white stroke-[1.5]" />
+                <FileText size={40} className="text-[#001a27] stroke-[1.5] mb-3" />,
+                <Search size={40} className="text-[#001a27] stroke-[1.5] mb-3" />,
+                <Rocket size={40} className="text-[#001a27] stroke-[1.5] mb-3" />
               ];
               return (
                 <motion.div 
@@ -249,23 +249,13 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                     {i + 1}
                   </div>
                   
-                  {/* Droplet + Circle Container */}
-                  <div className="relative z-10 flex flex-col md:flex-row items-center w-full group">
-                    {/* Droplet Shape */}
-                    <div 
-                      className="w-32 h-32 lg:w-36 lg:h-36 flex-shrink-0 flex items-center justify-center relative z-10 transition-transform group-hover:scale-105 duration-500 bg-transparent"
-                      style={{ 
-                        borderRadius: "50% 50% 0 50%",
-                        border: "3px solid rgba(255,255,255,0.8)"
-                      }}
-                    >
-                      {icons[i]}
-                    </div>
-
+                  {/* Circle Container */}
+                  <div className="relative z-10 flex flex-col items-center justify-center w-full group">
                     {/* Solid Circle */}
                     <div 
-                      className="w-56 h-56 lg:w-64 lg:h-64 rounded-full flex flex-col justify-center items-center px-6 text-center relative z-20 -mt-10 md:mt-0 md:-ml-12 lg:-ml-16 bg-[#D8D2C5] text-[#001a27] shadow-2xl transition-all duration-500 group-hover:bg-[#E5DFD3] group-hover:scale-105"
+                      className="w-64 h-64 lg:w-72 lg:h-72 rounded-full flex flex-col justify-center items-center px-8 text-center relative z-20 bg-[#D8D2C5] text-[#001a27] shadow-2xl transition-all duration-500 group-hover:bg-[#E5DFD3] group-hover:scale-105"
                     >
+                      {icons[i]}
                       <h3 className="text-xl lg:text-2xl font-black mb-1 tracking-widest uppercase" style={{ fontFamily: "'UM Cloft', serif" }}>
                         Paso {i + 1}
                       </h3>
