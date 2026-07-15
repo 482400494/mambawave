@@ -182,6 +182,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
             {t.projects.empty}
           </div>
         )}
+        <SectionCTA section="Catálogos" text={t.contact.moreInfo} />
         </div>
       </section>
 
@@ -210,6 +211,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
               </div>
             ))}
           </div>
+          <SectionCTA section="Cómo funciona" text={t.contact.moreInfo} />
         </div>
       </section>
 
@@ -247,6 +249,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                  <Quote size={28} color="#4FB8C7" fill="#4FB8C7" className="rotate-180" />
               </div>
             </div>
+            <SectionCTA section="Reseñas" text={t.contact.moreInfo} align="start" />
           </div>
           {/* Right Column */}
           <div className="hidden md:block relative h-full min-h-[700px]">
@@ -290,6 +293,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 style={{ background: "var(--accent)" }}
               />
             </a>
+            <SectionCTA section="Nosotros" text={t.contact.moreInfo} align="start" />
           </div>
 
           <div className="relative aspect-square bg-foreground/20 overflow-hidden">
@@ -369,6 +373,23 @@ function AnimatedRoutes({ lang, t }: { lang: 'es'|'en', t: any }) {
           } 
         />
       </Routes>
+    </div>
+  );
+}
+
+function SectionCTA({ section, text, align = "center" }: { section: string, text: string, align?: "start" | "center" }) {
+  const waUrl = `https://wa.me/524922188690?text=${encodeURIComponent(`Hola, me gustaría obtener más información sobre la sección de ${section}.`)}`;
+  return (
+    <div className={`mt-14 flex w-full col-span-full ${align === 'start' ? 'justify-start' : 'justify-center'}`}>
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#F0954B] text-[#0C2436] text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-all duration-300 rounded-[3px] shadow-xl hover:-translate-y-1"
+      >
+        <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 brightness-0" />
+        {text}
+      </a>
     </div>
   );
 }
