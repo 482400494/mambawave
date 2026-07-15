@@ -410,41 +410,41 @@ function GlobalContactForm({ t }: { t: any }) {
           className="flex flex-col gap-5"
         >
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] tracking-widest uppercase text-white/70 font-bold">Nombre</label>
+            <label className="text-xs tracking-widest uppercase text-white/80 font-bold mb-1">Nombre</label>
             <input
               type="text"
               name="name"
               required
               placeholder={t.contact.formName}
-              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-sm tracking-wide placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
+              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-base tracking-wide placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
             />
           </div>
           
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] tracking-widest uppercase text-white/70 font-bold">Email o WhatsApp</label>
+            <label className="text-xs tracking-widest uppercase text-white/80 font-bold mb-1">Email o WhatsApp</label>
             <input
               type="text"
               name="email"
               required
               placeholder={t.contact.formEmail}
-              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-sm tracking-wide placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
+              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-base tracking-wide placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] tracking-widest uppercase text-white/70 font-bold">Tipo de negocio</label>
+            <label className="text-xs tracking-widest uppercase text-white/80 font-bold mb-1">Tipo de negocio</label>
             <input
               type="text"
               name="message"
               required
               placeholder="Ej. Boutique de ropa, repostería, spa..."
-              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-sm tracking-wide placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
+              className="w-full px-5 py-4 bg-[#0a293c] border border-border/40 text-white text-base tracking-wide placeholder:text-white/40 focus:border-accent focus:outline-none transition-colors rounded-[3px]"
             />
           </div>
 
           <button
             type="submit"
-            className="mt-2 inline-flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#F0954B] text-[#0C2436] text-xs font-bold tracking-widest uppercase hover:bg-[#f6a666] transition-colors duration-200 rounded-[3px]"
+            className="mt-2 inline-flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#F0954B] text-[#0C2436] text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-colors duration-200 rounded-[3px]"
           >
             Quiero mi catálogo &rarr;
           </button>
