@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle, Star, Quote } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
 import isotipo from "@/imports/isotipo.png";
@@ -207,6 +207,48 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="bg-[#f2f6f9] text-[#001a27] relative z-10 border-t border-border/10">
+        <div className="max-w-[1600px] mx-auto grid md:grid-cols-2">
+          {/* Left Column */}
+          <div className="p-12 md:p-24 flex flex-col justify-center relative bg-white md:bg-transparent">
+            <p className="text-xs font-black uppercase tracking-widest text-[#001a27]/50 mb-6">
+              {t.testimonials.subtitle}
+            </p>
+            <h2 className="text-[clamp(2.5rem,4vw,4rem)] font-black text-[#001a27] mb-10 leading-[1.1] tracking-tight">
+              {t.testimonials.title}
+            </h2>
+            
+            {/* Stars */}
+            <div className="flex gap-1.5 text-[#f59e0b] mb-10">
+              <Star size={20} fill="currentColor" color="currentColor" />
+              <Star size={20} fill="currentColor" color="currentColor" />
+              <Star size={20} fill="currentColor" color="currentColor" />
+              <Star size={20} fill="currentColor" color="currentColor" />
+              <Star size={20} fill="currentColor" color="currentColor" />
+            </div>
+
+            <p className="text-lg md:text-xl text-[#001a27]/80 leading-[1.8] mb-16 font-medium max-w-xl">
+              "{t.testimonials.quote}"
+            </p>
+
+            <div className="flex items-center justify-between mt-auto">
+              <div className="flex items-center gap-5">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&auto=format" alt="Client" className="w-14 h-14 rounded-full object-cover shadow-md" />
+                <span className="font-bold text-lg text-[#001a27]">{t.testimonials.author}</span>
+              </div>
+              <div className="w-16 h-16 bg-[#00283c] rounded-full flex items-center justify-center shadow-xl flex-shrink-0">
+                 <Quote size={28} color="#4FB8C7" fill="#4FB8C7" className="rotate-180" />
+              </div>
+            </div>
+          </div>
+          {/* Right Column */}
+          <div className="hidden md:block relative h-full min-h-[700px]">
+            <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=1000&h=1400&fit=crop&auto=format" alt="Business results" className="absolute inset-0 w-full h-full object-cover" />
           </div>
         </div>
       </section>

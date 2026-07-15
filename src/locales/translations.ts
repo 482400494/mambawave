@@ -44,6 +44,12 @@ export const translations = {
         { label: "03", title: "Publícalo y vende", desc: "En menos de 2 días tu catálogo está listo para compartir y vender." },
       ]
     },
+    testimonials: {
+      subtitle: "Lo que dicen nuestros clientes",
+      title: "Experiencias Reales, Resultados Impecables.",
+      quote: "Trabajar con Boom Mamba Wave fue la mejor decisión para nuestro negocio. Nos entregaron un catálogo digital espectacular muy rápido. El diseño es increíble, nuestros clientes pueden navegar nuestros productos de manera muy fácil y hemos cerrado el doble de ventas esta semana. Totalmente recomendado, el trato es sumamente profesional y amable.",
+      author: "Carolina Gómez",
+    },
     about: {
       subtitle: "¿Te suena familiar?",
       title1: "Tienes el",
@@ -138,6 +144,12 @@ export const translations = {
         { label: "02", title: "Customize it", desc: "Upload your products, photos, and brand colors. No code, no complications." },
         { label: "03", title: "Publish and sell", desc: "In less than 2 days your catalog is ready to share and sell." },
       ]
+    },
+    testimonials: {
+      subtitle: "What our clients say",
+      title: "Real Experiences, Impeccable Results.",
+      quote: "Working with Boom Mamba Wave was the best decision for our business. They delivered a spectacular digital catalog very quickly. The design is amazing, our customers can navigate our products very easily and we have closed double the sales this week. Totally recommended, the treatment is extremely professional and friendly.",
+      author: "Carolina Gómez",
     },
     about: {
       subtitle: "Does this sound familiar?",
