@@ -253,7 +253,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                   <div className="relative z-10 flex flex-col md:flex-row items-center w-full group">
                     {/* Droplet Shape */}
                     <div 
-                      className="w-32 h-32 lg:w-36 lg:h-36 flex-shrink-0 flex items-center justify-center relative z-20 transition-transform hover:scale-105 duration-500 bg-transparent"
+                      className="w-32 h-32 lg:w-36 lg:h-36 flex-shrink-0 flex items-center justify-center relative z-10 transition-transform group-hover:scale-105 duration-500 bg-transparent"
                       style={{ 
                         borderRadius: "50% 50% 0 50%",
                         border: "3px solid rgba(255,255,255,0.8)"
@@ -264,7 +264,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
 
                     {/* Solid Circle */}
                     <div 
-                      className="w-56 h-56 lg:w-64 lg:h-64 rounded-full flex flex-col justify-center items-center px-6 text-center relative z-10 -mt-10 md:mt-0 md:-ml-12 lg:-ml-16 bg-[#D8D2C5] text-[#001a27] shadow-2xl transition-all duration-500 group-hover:bg-[#E5DFD3]"
+                      className="w-56 h-56 lg:w-64 lg:h-64 rounded-full flex flex-col justify-center items-center px-6 text-center relative z-20 -mt-10 md:mt-0 md:-ml-12 lg:-ml-16 bg-[#D8D2C5] text-[#001a27] shadow-2xl transition-all duration-500 group-hover:bg-[#E5DFD3] group-hover:scale-105"
                     >
                       <h3 className="text-xl lg:text-2xl font-black mb-1 tracking-widest uppercase" style={{ fontFamily: "'UM Cloft', serif" }}>
                         Paso {i + 1}
