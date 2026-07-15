@@ -389,8 +389,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 {t.about.titleHighlight}
               </span>
               <br />
-              {t.about.title2}
-              {t.about.title3}
+              {t.about.title2} {t.about.title3}
             </h2>
             <p className="text-white/80 leading-relaxed max-w-md mb-8">
               {t.about.p1} <em>{t.about.p1bold}</em>
