@@ -4,6 +4,10 @@ import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
 import isotipo from "@/imports/isotipo.png";
 import whatsappIcon from "@/imports/whatsapp.png";
+import catCreative from "@/imports/cat-creative.png";
+import catPai from "@/imports/cat-pai.png";
+import catMamba from "@/imports/cat-mamba.png";
+import catLegal from "@/imports/cat-legal.png";
 import { translations } from "@/locales/translations";
 import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router";
 import { LegalPage } from "./pages/LegalPage";
@@ -13,35 +17,35 @@ import { motion } from "framer-motion";
 const projects = [
   {
     id: 1,
-    title: "Boutique Lookbook",
-    category: "Moda y accesorios",
+    title: "Agencia Creativa",
+    category: "Servicios",
     year: "2025",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&auto=format",
-    alt: "Catálogo de moda con fichas de producto",
+    img: catCreative,
+    alt: "Catálogo de marketing y contenido",
   },
   {
     id: 2,
-    title: "Menú & Pedidos",
-    category: "Alimentos y bebidas",
+    title: "Protección de Arrendamiento",
+    category: "Servicios",
     year: "2025",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&auto=format",
-    alt: "Catálogo para restaurantes y reposterías",
+    img: catPai,
+    alt: "Catálogo de servicios legales inmobiliarios",
   },
   {
     id: 3,
-    title: "Beauty Shelf",
-    category: "Belleza y cuidado personal",
+    title: "Black Mamba Films",
+    category: "Servicios",
     year: "2025",
-    img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&h=600&fit=crop&auto=format",
-    alt: "Catálogo de cosmética",
+    img: catMamba,
+    alt: "Catálogo de productora audiovisual",
   },
   {
     id: 4,
-    title: "Agencia Pro",
+    title: "Equipo Jurídico",
     category: "Servicios",
     year: "2024",
-    img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=600&fit=crop&auto=format",
-    alt: "Catálogo de servicios profesionales",
+    img: catLegal,
+    alt: "Catálogo de firma legal",
   },
 ];
 
