@@ -243,7 +243,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 >
                   {/* Outline Number */}
                   <div 
-                    className="absolute -top-16 md:-top-20 -left-4 md:-left-8 text-[140px] md:text-[160px] lg:text-[180px] leading-none font-black opacity-40 z-0 pointer-events-none select-none" 
+                    className="absolute -top-16 md:-top-20 left-4 md:left-8 lg:left-12 text-[140px] md:text-[160px] lg:text-[180px] leading-none font-black opacity-40 z-0 pointer-events-none select-none transition-all duration-500 group-hover:opacity-60" 
                     style={{ WebkitTextStroke: "2px rgba(255,255,255,0.7)", color: "transparent", fontFamily: "'UM Cloft', serif" }}
                   >
                     {i + 1}
