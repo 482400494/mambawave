@@ -8,19 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Read JSON from request body
-$json = file_get_contents('php://input');
-$data = json_decode($json, true);
-
-if (!$data) {
-    http_response_code(400);
-    echo json_encode(["error" => "Invalid payload"]);
-    exit;
-}
-
-$name = isset($data['name']) ? htmlspecialchars(strip_tags(trim($data['name']))) : '';
-$email = isset($data['email']) ? htmlspecialchars(strip_tags(trim($data['email']))) : '';
-$message = isset($data['message']) ? htmlspecialchars(strip_tags(trim($data['message']))) : '';
+$name = isset($_POST['name']) ? htmlspecialchars(strip_tags(trim($_POST['name']))) : '';
+$email = isset($_POST['email']) ? htmlspecialchars(strip_tags(trim($_POST['email']))) : '';
+$message = isset($_POST['message']) ? htmlspecialchars(strip_tags(trim($_POST['message']))) : '';
 
 if (empty($name) || empty($email)) {
     http_response_code(400);
