@@ -597,16 +597,17 @@ export default function App() {
           href="https://wa.me/524922188690?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n."
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 z-50 group"
+          className="fixed bottom-8 right-8 z-50 group flex justify-end"
           aria-label="WhatsApp"
         >
-          <div className="relative">
-            <div className="absolute -top-12 right-0 bg-foreground text-background text-xs font-medium px-4 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-              {t.contact.whatsappTooltip}
-              <div className="absolute -bottom-1 right-4 w-2 h-2 bg-foreground rotate-45" />
+          <div className="flex items-center bg-[#022135] rounded-full p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-500 ease-in-out w-[60px] group-hover:w-[200px] overflow-hidden">
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap pl-4 flex-1">
+              <p className="text-white text-[13px] font-bold leading-[1.2]">
+                Cotiza por<br />WhatsApp
+              </p>
             </div>
-            <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-              <img src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(37,211,102,0.4)]" />
+            <div className="w-[48px] h-[48px] bg-[#00a3e0] rounded-full flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out shadow-inner">
+              <ArrowUpRight size={24} color="#022135" strokeWidth={3.5} />
             </div>
           </div>
         </a>
