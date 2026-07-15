@@ -18,7 +18,7 @@ const projects = [
   {
     id: 1,
     title: "Agencia Creativa",
-    category: "Servicios",
+    category: "Agencias",
     year: "2025",
     img: catCreative,
     alt: "Catálogo de marketing y contenido",
@@ -26,7 +26,7 @@ const projects = [
   {
     id: 2,
     title: "Protección de Arrendamiento",
-    category: "Servicios",
+    category: "Inmobiliaria",
     year: "2025",
     img: catPai,
     alt: "Catálogo de servicios legales inmobiliarios",
@@ -34,7 +34,7 @@ const projects = [
   {
     id: 3,
     title: "Black Mamba Films",
-    category: "Servicios",
+    category: "Audiovisual",
     year: "2025",
     img: catMamba,
     alt: "Catálogo de productora audiovisual",
@@ -42,7 +42,7 @@ const projects = [
   {
     id: 4,
     title: "Equipo Jurídico",
-    category: "Servicios",
+    category: "Legal",
     year: "2024",
     img: catLegal,
     alt: "Catálogo de firma legal",
@@ -53,7 +53,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
   const [activeFilter, setActiveFilter] = useState("All");
   const t = translations[lang];
 
-  const filters = ["All", "Moda y accesorios", "Alimentos y bebidas", "Belleza y cuidado personal", "Servicios"];
+  const filters = ["All", "Agencias", "Inmobiliaria", "Audiovisual", "Legal"];
   const filtered = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
 
   const stats = [
