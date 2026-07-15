@@ -779,7 +779,7 @@ export default function App() {
         >
           <div className="overflow-hidden transition-all duration-500 ease-in-out max-w-0 group-hover:max-w-[160px] opacity-0 group-hover:opacity-100 bg-[#022135] rounded-l-full -mr-8 pr-8 py-3 shadow-lg">
             <p className="text-white text-[15px] font-bold leading-[1.1] whitespace-nowrap pl-6 pr-2">
-              Cotiza por<br />WhatsApp
+              {t.contact.ctaLine1}<br />{t.contact.ctaLine2}
             </p>
           </div>
           <div className="w-[100px] h-[100px] relative z-10 flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out drop-shadow-2xl">
