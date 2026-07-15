@@ -600,13 +600,13 @@ export default function App() {
           className="fixed bottom-8 right-8 z-50 group flex justify-end"
           aria-label="WhatsApp"
         >
-          <div className="flex items-center bg-[#022135] rounded-full p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-500 ease-in-out">
+          <div className="flex items-center bg-[#022135] rounded-full p-1 shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-500 ease-in-out">
             <div className="overflow-hidden transition-all duration-500 ease-in-out max-w-0 group-hover:max-w-[140px] opacity-0 group-hover:opacity-100">
-              <p className="text-white text-[13px] font-bold leading-[1.2] whitespace-nowrap pl-4 pr-3 py-1">
+              <p className="text-white text-[14px] font-bold leading-[1.1] whitespace-nowrap pl-5 pr-4 py-1">
                 Cotiza por<br />WhatsApp
               </p>
             </div>
-            <div className="w-[48px] h-[48px] bg-[#00a3e0] rounded-full flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out shadow-inner p-2.5">
+            <div className="w-[56px] h-[56px] rounded-full flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out">
               <img src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-contain" />
             </div>
           </div>
