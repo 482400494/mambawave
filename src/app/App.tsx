@@ -599,18 +599,16 @@ export default function App() {
           href="https://wa.me/524922188690?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n."
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-8 right-8 z-50 group flex justify-end"
+          className="fixed bottom-8 right-8 z-50 group flex items-center justify-end"
           aria-label="WhatsApp"
         >
-          <div className="flex items-center bg-[#022135] rounded-full p-1 shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-500 ease-in-out">
-            <div className="overflow-hidden transition-all duration-500 ease-in-out max-w-0 group-hover:max-w-[140px] opacity-0 group-hover:opacity-100">
-              <p className="text-white text-[14px] font-bold leading-[1.1] whitespace-nowrap pl-5 pr-4 py-1">
-                Cotiza por<br />WhatsApp
-              </p>
-            </div>
-            <div className="w-[56px] h-[56px] rounded-full flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out">
-              <img src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-contain" />
-            </div>
+          <div className="overflow-hidden transition-all duration-500 ease-in-out max-w-0 group-hover:max-w-[150px] opacity-0 group-hover:opacity-100 bg-[#022135] rounded-l-full -mr-6 pr-6 py-2.5 shadow-lg">
+            <p className="text-white text-[14px] font-bold leading-[1.1] whitespace-nowrap pl-6 pr-2">
+              Cotiza por<br />WhatsApp
+            </p>
+          </div>
+          <div className="w-[80px] h-[80px] relative z-10 flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out drop-shadow-2xl">
+            <img src={whatsappIcon} alt="WhatsApp" className="w-[90%] h-[90%] object-contain" />
           </div>
         </a>
 
