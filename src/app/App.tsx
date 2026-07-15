@@ -606,8 +606,8 @@ export default function App() {
                 Cotiza por<br />WhatsApp
               </p>
             </div>
-            <div className="w-[48px] h-[48px] bg-[#00a3e0] rounded-full flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out shadow-inner">
-              <ArrowUpRight size={24} color="#022135" strokeWidth={3.5} />
+            <div className="w-[48px] h-[48px] bg-[#00a3e0] rounded-full flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out shadow-inner p-2.5">
+              <img src={whatsappIcon} alt="WhatsApp" className="w-full h-full object-contain" />
             </div>
           </div>
         </a>
