@@ -433,7 +433,7 @@ function GlobalContactForm({ t }: { t: any }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
-    <div className="border-t border-border/10 relative z-10 bg-[#238AA0] text-white">
+    <div id="contact" className="border-t border-border/10 relative z-10 bg-[#238AA0] text-white">
       <div className="py-24 px-6 md:px-12 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         <div>
           <p className="text-lg font-bold tracking-[0.25em] uppercase mb-4" style={{ color: '#002739' }}>
