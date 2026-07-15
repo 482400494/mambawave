@@ -122,17 +122,14 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       </section>
 
       {/* STATS BAR */}
-      <div className="border-y border-border" style={{ background: "#001a27" }}>
-        <div className="max-w-screen-xl mx-auto px-6 md:px-12 py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s, i) => (
-            <motion.div 
-              key={s.label} 
-              className="flex flex-col gap-1"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
+      <div className="border-y border-border overflow-hidden" style={{ background: "#001a27" }}>
+        <motion.div 
+          className="flex items-center gap-16 md:gap-32 py-8 w-max pl-16 md:pl-32"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+        >
+          {[...stats, ...stats].map((s, i) => (
+            <div key={`${s.label}-${i}`} className="flex flex-col gap-1 flex-shrink-0">
               <span
                 className="text-4xl font-black leading-none"
                 style={{ color: "var(--accent)" }}
@@ -140,9 +137,9 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 {s.value}
               </span>
               <span className="text-xs tracking-widest uppercase text-white/50">{s.label}</span>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* PROJECTS */}
