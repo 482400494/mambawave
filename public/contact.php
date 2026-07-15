@@ -47,15 +47,19 @@ $body = "
 </html>
 ";
 
+$domain = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'boommamba.com';
+$fromEmail = "no-reply@" . preg_replace('/^www\./', '', $domain);
+
 $headers  = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: form@boommambawave.com" . "\r\n";
+$headers .= "From: Formulario <" . $fromEmail . ">" . "\r\n";
 $headers .= "Reply-To: $email" . "\r\n";
 
 if (mail($to, $subject, $body, $headers)) {
     echo json_encode(["success" => true, "message" => "Email sent successfully"]);
 } else {
     http_response_code(500);
-    echo json_encode(["error" => "Failed to send email"]);
+    $error = error_get_last();
+    echo json_encode(["error" => "Failed to send email. Check server mail configuration.", "details" => $error]);
 }
 ?>

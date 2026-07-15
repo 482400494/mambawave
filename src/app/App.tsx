@@ -469,7 +469,13 @@ function GlobalContactForm({ t }: { t: any }) {
                 navigate('/thank-you');
                 form.reset();
               } else {
-                alert('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
+                let errorMsg = `Status ${res.status}`;
+                try {
+                  const data = await res.json();
+                  if (data.error) errorMsg = data.error;
+                  if (data.details && data.details.message) errorMsg += ` (${data.details.message})`;
+                } catch(e) {}
+                alert(`Hubo un error al enviar el mensaje. Detalle: ${errorMsg}. Por favor intenta de nuevo.`);
               }
             } catch (err) {
               alert('Hubo un error de red. Por favor revisa tu conexión e intenta de nuevo.');
