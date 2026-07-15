@@ -133,7 +133,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           <div>
             <p
               className="text-sm font-bold tracking-[0.25em] uppercase mb-4"
-              style={{ color: "var(--accent)" }}
+              style={{ color: "#002739" }}
             >
               {t.projects.featured}
             </p>
@@ -381,7 +381,7 @@ function GlobalContactForm({ t }: { t: any }) {
     <div className="border-t border-border/10 relative z-10 bg-[#238AA0] text-white">
       <div className="py-24 px-6 md:px-12 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         <div>
-          <p className="text-sm font-bold tracking-[0.25em] uppercase mb-4" style={{ color: 'var(--accent)' }}>
+          <p className="text-sm font-bold tracking-[0.25em] uppercase mb-4" style={{ color: '#002739' }}>
             — {t.contact.subtitle}
           </p>
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight mb-6">
@@ -390,7 +390,7 @@ function GlobalContactForm({ t }: { t: any }) {
           <p className="text-white/90 text-base mb-8 max-w-md">
             {t.contact.formTitle}
           </p>
-          <div className="text-base font-bold" style={{ color: 'var(--accent)' }}>
+          <div className="text-base font-bold" style={{ color: '#002739' }}>
             ✓ {t.contact.call}
           </div>
         </div>
@@ -602,12 +602,12 @@ export default function App() {
           className="fixed bottom-8 right-8 z-50 group flex items-center justify-end"
           aria-label="WhatsApp"
         >
-          <div className="overflow-hidden transition-all duration-500 ease-in-out max-w-0 group-hover:max-w-[150px] opacity-0 group-hover:opacity-100 bg-[#022135] rounded-l-full -mr-6 pr-6 py-2.5 shadow-lg">
-            <p className="text-white text-[14px] font-bold leading-[1.1] whitespace-nowrap pl-6 pr-2">
+          <div className="overflow-hidden transition-all duration-500 ease-in-out max-w-0 group-hover:max-w-[160px] opacity-0 group-hover:opacity-100 bg-[#022135] rounded-l-full -mr-8 pr-8 py-3 shadow-lg">
+            <p className="text-white text-[15px] font-bold leading-[1.1] whitespace-nowrap pl-6 pr-2">
               Cotiza por<br />WhatsApp
             </p>
           </div>
-          <div className="w-[80px] h-[80px] relative z-10 flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out drop-shadow-2xl">
+          <div className="w-[100px] h-[100px] relative z-10 flex items-center justify-center flex-shrink-0 group-hover:-rotate-[360deg] transition-transform duration-700 ease-out drop-shadow-2xl">
             <img src={whatsappIcon} alt="WhatsApp" className="w-[90%] h-[90%] object-contain" />
           </div>
         </a>
