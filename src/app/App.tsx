@@ -209,7 +209,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
             {t.projects.empty}
           </div>
         )}
-        <SectionCTA section="Catálogos" text={t.contact.moreInfo} />
+        <SectionCTA section="Catálogos" line1={t.contact.ctaLine1} line2={t.contact.ctaLine2} />
         </div>
       </section>
 
@@ -248,7 +248,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
               </motion.div>
             ))}
           </div>
-          <SectionCTA section="Cómo funciona" text={t.contact.moreInfo} />
+          <SectionCTA section="Cómo funciona" line1={t.contact.ctaLine1} line2={t.contact.ctaLine2} />
         </div>
       </section>
 
@@ -340,7 +340,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 style={{ background: "var(--accent)" }}
               />
             </a>
-            <SectionCTA section="Nosotros" text={t.contact.moreInfo} align="start" />
+            <SectionCTA section="Nosotros" line1={t.contact.ctaLine1} line2={t.contact.ctaLine2} align="start" />
           </motion.div>
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
@@ -462,7 +462,7 @@ function ThankYouPage({ t }: { t: any }) {
   );
 }
 
-function SectionCTA({ section, text, align = "center" }: { section: string, text: string, align?: "start" | "center" }) {
+function SectionCTA({ section, line1, line2, align = "center" }: { section: string, line1: string, line2: string, align?: "start" | "center" }) {
   const waUrl = `https://wa.me/525516382556?text=${encodeURIComponent(`Hola, me gustaría obtener más información sobre la sección de ${section}.`)}`;
   return (
     <div className={`mt-14 flex w-full col-span-full ${align === 'start' ? 'justify-start' : 'justify-center'}`}>
@@ -470,10 +470,15 @@ function SectionCTA({ section, text, align = "center" }: { section: string, text
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#F0954B] text-[#0C2436] text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-all duration-300 rounded-[3px] shadow-xl hover:-translate-y-1"
+        className="group inline-flex items-center justify-between pl-8 pr-2 py-2 bg-[#002739] border border-white/10 hover:border-white/30 transition-all duration-300 rounded-full shadow-2xl hover:-translate-y-1 w-[260px]"
       >
-        <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 brightness-0" />
-        {text}
+        <div className="flex flex-col text-left">
+          <span className="text-white text-sm font-medium leading-tight">{line1}</span>
+          <span className="text-white text-base font-bold leading-tight tracking-wide">{line2}</span>
+        </div>
+        <div className="w-12 h-12 rounded-full bg-[#00a2d4] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+          <ArrowUpRight size={24} className="text-[#002739] stroke-[2.5]" />
+        </div>
       </a>
     </div>
   );
