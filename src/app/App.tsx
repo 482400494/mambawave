@@ -228,9 +228,9 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-4 lg:gap-8 mt-24 mb-16 w-full">
             {t.services.items.map((s: any, i: number) => {
               const icons = [
-                <FileText size={40} className="text-[#001a27] stroke-[1.5] mb-3" />,
-                <Search size={40} className="text-[#001a27] stroke-[1.5] mb-3" />,
-                <Rocket size={40} className="text-[#001a27] stroke-[1.5] mb-3" />
+                <FileText size={40} className="text-white stroke-[1.5] mb-3" />,
+                <Search size={40} className="text-white stroke-[1.5] mb-3" />,
+                <Rocket size={40} className="text-white stroke-[1.5] mb-3" />
               ];
               return (
                 <motion.div 
@@ -251,9 +251,10 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                   
                   {/* Circle Container */}
                   <div className="relative z-10 flex flex-col items-center justify-center w-full group">
-                    {/* Solid Circle */}
+                    {/* Droplet Shape */}
                     <div 
-                      className="w-64 h-64 lg:w-72 lg:h-72 rounded-full flex flex-col justify-center items-center px-8 text-center relative z-20 bg-[#D8D2C5] text-[#001a27] shadow-2xl transition-all duration-500 group-hover:bg-[#E5DFD3] group-hover:scale-105"
+                      className="w-64 h-64 lg:w-72 lg:h-72 flex flex-col justify-center items-center px-8 text-center relative z-20 bg-[#328aa0] text-white shadow-2xl transition-all duration-500 group-hover:bg-[#238AA0] group-hover:scale-105"
+                      style={{ borderRadius: "50% 50% 0 50%" }}
                     >
                       {icons[i]}
                       <h3 className="text-xl lg:text-2xl font-black mb-1 tracking-widest uppercase" style={{ fontFamily: "'UM Cloft', serif" }}>
