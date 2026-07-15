@@ -460,20 +460,19 @@ function GlobalContactForm({ t }: { t: any }) {
             const message = (form.elements.namedItem('message') as HTMLInputElement).value;
             
             try {
-              const res = await fetch('https://formsubmit.co/ajax/boommambawave@gmail.com', {
+              const params = new URLSearchParams();
+              params.append('name', name);
+              params.append('email', email);
+              params.append('message', message);
+
+              const res = await fetch('/contact.php', {
                 method: 'POST',
-                headers: { 
-                  'Content-Type': 'application/json',
-                  'Accept': 'application/json'
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: JSON.stringify({ 
-                  Nombre: name, 
-                  Contacto: email, 
-                  Negocio: message,
-                  _subject: `Nuevo contacto de ${name} (Boom Mamba Wave)`,
-                  _template: 'table'
-                })
+                body: params.toString()
               });
+              
               if (res.ok) {
                 navigate('/thank-you');
                 form.reset();
