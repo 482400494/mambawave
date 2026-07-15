@@ -5,7 +5,7 @@ import logotipo from "@/imports/logo-nuevo.png";
 import isotipo from "@/imports/isotipo.png";
 import whatsappIcon from "@/imports/whatsapp.png";
 import { translations } from "@/locales/translations";
-import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router";
+import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router";
 import { LegalPage } from "./pages/LegalPage";
 import { ContactPage } from "./pages/ContactPage";
 
@@ -249,7 +249,6 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                  <Quote size={28} color="#4FB8C7" fill="#4FB8C7" className="rotate-180" />
               </div>
             </div>
-            <SectionCTA section="Reseñas" text={t.contact.moreInfo} align="start" />
           </div>
           {/* Right Column */}
           <div className="hidden md:block relative h-full min-h-[700px]">
@@ -372,13 +371,46 @@ function AnimatedRoutes({ lang, t }: { lang: 'es'|'en', t: any }) {
             <ContactPage t={t} />
           } 
         />
+        <Route 
+          path="/thank-you" 
+          element={
+            <ThankYouPage t={t} />
+          } 
+        />
       </Routes>
     </div>
   );
 }
 
+function ThankYouPage({ t }: { t: any }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <div className="min-h-screen bg-[#001a27] text-white flex flex-col items-center justify-center p-6 text-center">
+      <div className="max-w-md">
+        <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-8 shadow-[0_0_40px_rgba(240,149,75,0.4)]">
+          <Send size={32} color="#0C2436" />
+        </div>
+        <h1 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+          {t.thankYou.title}
+        </h1>
+        <p className="text-white/70 text-lg mb-12">
+          {t.thankYou.desc}
+        </p>
+        <Link 
+          to="/"
+          className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#001a27] text-sm font-bold tracking-widest uppercase hover:bg-gray-200 transition-colors rounded-[3px]"
+        >
+          {t.thankYou.back}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 function SectionCTA({ section, text, align = "center" }: { section: string, text: string, align?: "start" | "center" }) {
-  const waUrl = `https://wa.me/524922188690?text=${encodeURIComponent(`Hola, me gustaría obtener más información sobre la sección de ${section}.`)}`;
+  const waUrl = `https://wa.me/525516382556?text=${encodeURIComponent(`Hola, me gustaría obtener más información sobre la sección de ${section}.`)}`;
   return (
     <div className={`mt-14 flex w-full col-span-full ${align === 'start' ? 'justify-start' : 'justify-center'}`}>
       <a
@@ -396,7 +428,9 @@ function SectionCTA({ section, text, align = "center" }: { section: string, text
 
 function GlobalContactForm({ t }: { t: any }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
     <div className="border-t border-border/10 relative z-10 bg-[#238AA0] text-white">
@@ -417,16 +451,31 @@ function GlobalContactForm({ t }: { t: any }) {
         </div>
 
         <form
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
+            setIsSubmitting(true);
             const form = e.target as HTMLFormElement;
             const name = (form.elements.namedItem('name') as HTMLInputElement).value;
             const email = (form.elements.namedItem('email') as HTMLInputElement).value;
             const message = (form.elements.namedItem('message') as HTMLInputElement).value;
             
-            const mailto = `mailto:contacto@boommambawave.com?subject=Contacto de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\nTipo de negocio / Interés: ${message}`)}`;
-            window.location.href = mailto;
-            form.reset();
+            try {
+              const res = await fetch('/contact.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message })
+              });
+              if (res.ok) {
+                navigate('/thank-you');
+                form.reset();
+              } else {
+                alert('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
+              }
+            } catch (err) {
+              alert('Hubo un error de red. Por favor revisa tu conexión e intenta de nuevo.');
+            } finally {
+              setIsSubmitting(false);
+            }
           }}
           className="flex flex-col gap-5"
         >
@@ -465,9 +514,12 @@ function GlobalContactForm({ t }: { t: any }) {
 
           <button
             type="submit"
-            className="mt-2 inline-flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#F0954B] text-[#0C2436] text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-colors duration-200 rounded-[3px]"
+            disabled={isSubmitting}
+            className="mt-2 inline-flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#F0954B] text-[#0C2436] text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-colors duration-200 rounded-[3px] disabled:opacity-70 disabled:cursor-not-allowed"
           >
-            Quiero mi catálogo &rarr;
+            {isSubmitting ? (t.contact.formSend || 'Enviando...') : (
+              <>Quiero mi catálogo &rarr;</>
+            )}
           </button>
         </form>
       </div>
@@ -617,7 +669,7 @@ export default function App() {
 
         {/* FLOATING WHATSAPP BUTTON */}
         <a
-          href="https://wa.me/524922188690?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n."
+          href="https://wa.me/525516382556?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n."
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-8 right-8 z-50 group flex items-center justify-end"

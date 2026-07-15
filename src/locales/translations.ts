@@ -77,6 +77,11 @@ export const translations = {
       formSent: "¡Mensaje enviado!",
       whatsappTooltip: "¿Necesitas ayuda? Escríbenos",
     },
+    thankYou: {
+      title: "¡Gracias por escribirnos!",
+      desc: "Hemos recibido tus datos correctamente. Nuestro equipo los revisará y se pondrá en contacto contigo lo antes posible para ayudarte con tu catálogo.",
+      back: "Volver al inicio",
+    },
     footer: {
       links: {
         Templates: "Catálogos",
@@ -177,6 +182,11 @@ export const translations = {
       formSend: "Send message",
       formSent: "Message sent!",
       whatsappTooltip: "Need help? Write to us",
+    },
+    thankYou: {
+      title: "Thank you for writing to us!",
+      desc: "We have successfully received your information. Our team will review it and get in touch with you as soon as possible to help you with your catalog.",
+      back: "Back to home",
     },
     footer: {
       links: {
