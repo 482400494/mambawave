@@ -40,6 +40,7 @@ export const translations = {
     services: {
       subtitle: "Cómo funciona",
       title: "De cero a vendiendo, en 3 pasos.",
+      step: "Paso",
       items: [
         { label: "01", title: "Elige tu catálogo", desc: "Explora templates diseñados para tu tipo de negocio y productos." },
         { label: "02", title: "Personalízalo", desc: "Sube tus productos, fotos y colores de marca. Sin código, sin complicaciones." },
@@ -155,6 +156,7 @@ export const translations = {
     services: {
       subtitle: "How it works",
       title: "From zero to selling, in 3 steps.",
+      step: "Step",
       items: [
         { label: "01", title: "Choose your catalog", desc: "Explore templates designed for your type of business and products." },
         { label: "02", title: "Customize it", desc: "Upload your products, photos, and brand colors. No code, no complications." },

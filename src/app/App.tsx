@@ -258,7 +258,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                     >
                       {icons[i]}
                       <h3 className="text-xl lg:text-2xl font-black mb-1 tracking-widest uppercase" style={{ fontFamily: "'UM Cloft', serif" }}>
-                        Paso {i + 1}
+                        {t.services.step} {i + 1}
                       </h3>
                       <p className="text-sm font-bold mb-2 opacity-90 max-w-[160px] leading-tight">{s.title}</p>
                       <p className="text-xs lg:text-sm leading-relaxed font-medium opacity-80 max-w-[180px]">
