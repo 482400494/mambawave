@@ -127,7 +127,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       </div>
 
       {/* PROJECTS */}
-      <section id="templates" className="py-28 px-6 md:px-12 relative z-10 bg-white text-[#001a27]">
+      <section id="templates" className="py-28 px-6 md:px-12 relative z-10 bg-[#238AA0] text-white">
         <div className="max-w-screen-xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div>
@@ -152,8 +152,8 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 onClick={() => setActiveFilter(f)}
                 className={`px-4 py-1.5 text-xs tracking-widest uppercase border transition-all duration-200 ${
                   activeFilter === f
-                    ? "bg-foreground text-background border-foreground"
-                    : "border-border text-foreground/50 hover:border-foreground hover:text-foreground"
+                    ? "bg-white text-[#238AA0] border-white"
+                    : "border-white/30 text-white/70 hover:border-white hover:text-white"
                 }`}
               >
                 {t.projects.filters[f as keyof typeof t.projects.filters] || f}
@@ -178,7 +178,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
         </div>
 
         {filtered.length === 0 && (
-          <div className="py-24 text-center text-[#001a27]/30 text-sm tracking-widest uppercase">
+          <div className="py-24 text-center text-white/40 text-sm tracking-widest uppercase">
             {t.projects.empty}
           </div>
         )}
@@ -214,14 +214,14 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" className="bg-[#f2f6f9] text-[#001a27] relative z-10 border-t border-border/10">
+      <section id="testimonials" className="bg-[#238AA0] text-white relative z-10 border-t border-border/10">
         <div className="max-w-[1600px] mx-auto grid md:grid-cols-2">
           {/* Left Column */}
-          <div className="p-12 md:p-24 flex flex-col justify-center relative bg-white md:bg-transparent">
-            <p className="text-xs font-black uppercase tracking-widest text-[#001a27]/50 mb-6">
+          <div className="p-12 md:p-24 flex flex-col justify-center relative bg-[#238AA0] md:bg-transparent">
+            <p className="text-xs font-black uppercase tracking-widest text-white/70 mb-6">
               {t.testimonials.subtitle}
             </p>
-            <h2 className="text-[clamp(2.5rem,4vw,4rem)] font-black text-[#001a27] mb-10 leading-[1.1] tracking-tight">
+            <h2 className="text-[clamp(2.5rem,4vw,4rem)] font-black text-white mb-10 leading-[1.1] tracking-tight">
               {t.testimonials.title}
             </h2>
             
@@ -234,16 +234,16 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
               <Star size={20} fill="currentColor" color="currentColor" />
             </div>
 
-            <p className="text-lg md:text-xl text-[#001a27]/80 leading-[1.8] mb-16 font-medium max-w-xl">
+            <p className="text-lg md:text-xl text-white/90 leading-[1.8] mb-16 font-medium max-w-xl">
               "{t.testimonials.quote}"
             </p>
 
             <div className="flex items-center justify-between mt-auto">
               <div className="flex items-center gap-5">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&auto=format" alt="Client" className="w-14 h-14 rounded-full object-cover shadow-md" />
-                <span className="font-bold text-lg text-[#001a27]">{t.testimonials.author}</span>
+                <span className="font-bold text-lg text-white">{t.testimonials.author}</span>
               </div>
-              <div className="w-16 h-16 bg-[#00283c] rounded-full flex items-center justify-center shadow-xl flex-shrink-0">
+              <div className="w-16 h-16 bg-[#001a27] rounded-full flex items-center justify-center shadow-xl flex-shrink-0">
                  <Quote size={28} color="#4FB8C7" fill="#4FB8C7" className="rotate-180" />
               </div>
             </div>
