@@ -99,16 +99,18 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           <p className="text-base text-foreground/60 max-w-sm leading-relaxed">
             {t.hero.desc}
           </p>
-          <div className="flex items-center gap-8">
+          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 mt-8 md:mt-0">
             <a
               href="#templates"
-              className="group flex items-center gap-3 text-sm font-medium uppercase tracking-widest"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-4 bg-[#F0954B] text-[#0C2436] text-xs md:text-sm font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:bg-[#f6a666] transition-all duration-300 rounded-[3px] whitespace-nowrap"
             >
-              <span
-                className="w-10 h-px transition-all duration-300 group-hover:w-20"
-                style={{ background: "var(--accent)" }}
-              />
-              {t.hero.explore}
+              {t.hero.btn1}
+            </a>
+            <a
+              href="#contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 md:px-8 py-4 bg-transparent border border-white/20 text-white text-xs md:text-sm font-bold tracking-[0.1em] md:tracking-[0.15em] uppercase hover:border-white hover:bg-white/5 transition-all duration-300 rounded-[3px] whitespace-nowrap"
+            >
+              {t.hero.btn2}
             </a>
           </div>
         </motion.div>
