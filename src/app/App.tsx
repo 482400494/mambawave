@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle, Star, Quote } from "lucide-react";
+import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle, Star, Quote, FileText, Search, Rocket } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
 import isotipo from "@/imports/isotipo.png";
@@ -225,28 +225,59 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           >
             {t.services.title}
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {t.services.items.map((s: any, i: number) => (
-              <motion.div 
-                key={s.label} 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group flex flex-col p-8 rounded-2xl transition-all duration-300 cursor-pointer bg-[#0a293c] border border-border/40 hover:bg-[#328aa0] hover:text-white"
-              >
-                <div className="w-12 h-12 bg-white text-[#0a293c] flex items-center justify-center font-black text-xl rounded-sm mb-8 transition-transform duration-300 group-hover:scale-110 shadow-lg">
-                  {i + 1}
-                </div>
-                <h3 className="text-xl font-bold mb-4">{s.title}</h3>
-                <p className="text-sm opacity-80 leading-relaxed flex-1">{s.desc}</p>
-                {i === 0 && (
-                  <div className="mt-8 text-sm font-medium opacity-60 group-hover:opacity-100 flex items-center gap-2">
-                    Paso 1 <ArrowRight size={14} />
+          <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-4 lg:gap-8 mt-24 mb-16 w-full">
+            {t.services.items.map((s: any, i: number) => {
+              const icons = [
+                <FileText size={48} className="text-white stroke-[1.5]" />,
+                <Search size={48} className="text-white stroke-[1.5]" />,
+                <Rocket size={48} className="text-white stroke-[1.5]" />
+              ];
+              return (
+                <motion.div 
+                  key={s.label} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: i * 0.2 }}
+                  className="relative flex flex-col md:flex-row items-center w-full max-w-[320px] lg:max-w-[380px]"
+                >
+                  {/* Outline Number */}
+                  <div 
+                    className="absolute -top-16 md:-top-20 -left-4 md:-left-8 text-[140px] md:text-[160px] lg:text-[180px] leading-none font-black opacity-40 z-0 pointer-events-none select-none" 
+                    style={{ WebkitTextStroke: "2px rgba(255,255,255,0.7)", color: "transparent", fontFamily: "'UM Cloft', serif" }}
+                  >
+                    {i + 1}
                   </div>
-                )}
-              </motion.div>
-            ))}
+                  
+                  {/* Droplet + Circle Container */}
+                  <div className="relative z-10 flex flex-col md:flex-row items-center w-full group">
+                    {/* Droplet Shape */}
+                    <div 
+                      className="w-32 h-32 lg:w-36 lg:h-36 flex-shrink-0 flex items-center justify-center relative z-20 transition-transform hover:scale-105 duration-500 bg-transparent"
+                      style={{ 
+                        borderRadius: "50% 50% 0 50%",
+                        border: "3px solid rgba(255,255,255,0.8)"
+                      }}
+                    >
+                      {icons[i]}
+                    </div>
+
+                    {/* Solid Circle */}
+                    <div 
+                      className="w-56 h-56 lg:w-64 lg:h-64 rounded-full flex flex-col justify-center items-center px-6 text-center relative z-10 -mt-10 md:mt-0 md:-ml-12 lg:-ml-16 bg-[#D8D2C5] text-[#001a27] shadow-2xl transition-all duration-500 group-hover:bg-[#E5DFD3]"
+                    >
+                      <h3 className="text-xl lg:text-2xl font-black mb-1 tracking-widest uppercase" style={{ fontFamily: "'UM Cloft', serif" }}>
+                        Paso {i + 1}
+                      </h3>
+                      <p className="text-sm font-bold mb-2 opacity-90 max-w-[160px] leading-tight">{s.title}</p>
+                      <p className="text-xs lg:text-sm leading-relaxed font-medium opacity-80 max-w-[180px]">
+                        {s.desc}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
           <SectionCTA section="Cómo funciona" text={t.contact.moreInfo} />
         </div>
