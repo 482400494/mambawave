@@ -132,7 +132,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div>
             <p
-              className="text-sm font-bold tracking-[0.25em] uppercase mb-4"
+              className="text-lg font-bold tracking-[0.25em] uppercase mb-4"
               style={{ color: "#002739" }}
             >
               {t.projects.featured}
@@ -381,7 +381,7 @@ function GlobalContactForm({ t }: { t: any }) {
     <div className="border-t border-border/10 relative z-10 bg-[#238AA0] text-white">
       <div className="py-24 px-6 md:px-12 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         <div>
-          <p className="text-sm font-bold tracking-[0.25em] uppercase mb-4" style={{ color: '#002739' }}>
+          <p className="text-lg font-bold tracking-[0.25em] uppercase mb-4" style={{ color: '#002739' }}>
             — {t.contact.subtitle}
           </p>
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight mb-6">
@@ -390,7 +390,7 @@ function GlobalContactForm({ t }: { t: any }) {
           <p className="text-white/90 text-base mb-8 max-w-md">
             {t.contact.formTitle}
           </p>
-          <div className="text-base font-bold" style={{ color: '#002739' }}>
+          <div className="text-xl font-bold" style={{ color: '#002739' }}>
             ✓ {t.contact.call}
           </div>
         </div>
