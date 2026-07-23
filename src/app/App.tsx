@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle, Star, Quote, FileText, Search, Rocket, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, Menu, X, ArrowRight, Globe, Phone, Send, MessageCircle, Star, Quote, FileText, Search, Rocket, ChevronLeft, ChevronRight, Instagram, Facebook } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logotipo from "@/imports/logo-nuevo.png";
 import isotipo from "@/imports/isotipo.png";
@@ -407,7 +407,28 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                 style={{ background: "var(--accent)" }}
               />
             </Link>
-            <SectionCTA section="Nosotros" text={t.contact.moreInfo} align="start" />
+            <SectionCTA section="Nosotros" text={t.contact.moreInfo} align="start">
+              <div className="flex items-center gap-4">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} className="text-white" />
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={20} className="text-white" />
+                </a>
+              </div>
+            </SectionCTA>
           </motion.div>
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
@@ -529,10 +550,10 @@ function ThankYouPage({ t }: { t: any }) {
   );
 }
 
-function SectionCTA({ section, text, align = "center" }: { section: string, text: string, align?: "start" | "center" }) {
+function SectionCTA({ section, text, align = "center", children }: { section: string, text: string, align?: "start" | "center", children?: React.ReactNode }) {
   const waUrl = `https://wa.me/525516382556?text=${encodeURIComponent(`Hola, me gustaría obtener más información sobre la sección de ${section}.`)}`;
   return (
-    <div className={`mt-14 flex w-full col-span-full ${align === 'start' ? 'justify-start' : 'justify-center'}`}>
+    <div className={`mt-14 flex w-full col-span-full items-center gap-6 flex-wrap ${align === 'start' ? 'justify-start' : 'justify-center'}`}>
       <a
         href={waUrl}
         target="_blank"
@@ -546,6 +567,7 @@ function SectionCTA({ section, text, align = "center" }: { section: string, text
           <ArrowUpRight size={22} className="text-[#F0954B] stroke-[2.5]" />
         </div>
       </a>
+      {children}
     </div>
   );
 }
