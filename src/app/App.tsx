@@ -410,7 +410,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
             <SectionCTA section="Nosotros" text={t.contact.moreInfo} align="start">
               <div className="flex items-center gap-4">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/boommambawave/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
@@ -419,7 +419,7 @@ function Home({ lang }: { lang: 'en' | 'es' }) {
                   <Instagram size={20} className="text-white" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/profile.php?id=61591718528889&locale=es_LA"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
